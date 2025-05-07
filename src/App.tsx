@@ -45,7 +45,7 @@ function App() {
       title: "AI Darlings",
       description: "An AI-powered daily agent for senior companions",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "src/assets/project/featured/AIDarling.jpg",
+      image: "./src/assets/project/featured/AIDarling.jpg",
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -57,7 +57,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "src/assets/project/featured/Colordorm.png",
+      image: "./src/assets/project/featured/Colordorm.png",
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -69,7 +69,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "src/assets/project/featured/PaintAI.png",
+      image: "./src/assets/project/featured/PaintAI.png",
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -81,7 +81,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "src/assets/project/featured/Menulens.jpg",
+      image: "./src/assets/project/featured/Menulens.jpg",
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -93,7 +93,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "src/assets/project/featured/milo.jpg",
+      image: "./src/assets/project/featured/milo.jpg",
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -105,7 +105,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "src/assets/project/featured/punch.png",
+      image: "./src/assets/project/featured/punch.png",
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -117,7 +117,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "src/assets/project/featured/trucking.png",
+      image: "./src/assets/project/featured/trucking.png",
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -129,7 +129,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "src/assets/project/featured/cybersight.png",
+      image: "./src/assets/project/featured/cybersight.png",
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -315,7 +315,7 @@ function App() {
       {/* Background Audio Player */}
       <audio 
         ref={audioRef} 
-        src="src/assets/blue.mp3" 
+        src="./src/assets/blue.mp3" 
         loop
       />
 
@@ -365,7 +365,7 @@ function App() {
         <div className="space-y-8 relative group">
                   <div className="relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-500 hover:shadow-3xl">
                     <img 
-                      src="src/assets/Bohan.jpg" 
+                      src="./src/assets/Bohan.jpg" 
                       alt="Bohan Wang"
                       className="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105"
                     />
