@@ -174,31 +174,29 @@ function App() {
     },
     // Add at least 4 more projects
   ]
-
-  // Experience data - replace with your actual experience
   const experiences = [
     {
       id: 1,
-      company: "TechCorp Inc.",
-      role: "Senior Frontend Developer",
-      period: "2021 - Present",
-      description: "Led development of multiple client-facing applications using React and TypeScript. Improved performance metrics by 45% through code optimization."
+      company: "Data-Curve",
+      role: "Frontend Developer (Independent Contractor)",
+      period: "May 2024 – Present",
+      description: "Developed AI-resistant interactive components using React, Tailwind CSS, and TypeScript, achieving 20% expansion in front-end data collection. Delivered production-ready code to enhance AI-driven UI generation for language model companies."
     },
     {
       id: 2,
-      company: "Digital Solutions Ltd.",
-      role: "Full Stack Developer",
-      period: "2018 - 2021",
-      description: "Developed and maintained full-stack web applications. Implemented RESTful APIs and database architecture."
+      company: "Northking Information",
+      role: "Software Development Intern (Computer Vision)",
+      period: "Apr 2023 – Aug 2023",
+      description: "Enhanced YOLO model performance (+2.5% accuracy, +4% precision) through optimized CNN architectures and filtering loops. Improved license plate recognition systems contributing to revenue growth using Python and OpenCV."
     },
     {
       id: 3,
-      company: "StartupHub",
-      role: "Junior Developer",
-      period: "2016 - 2018",
-      description: "Contributed to development of MVP for various startup projects. Gained experience in agile development methodologies."
+      company: "TaiHe Technology",
+      role: "Python Machine Learning Engineer Intern",
+      period: "Apr 2022 – Aug 2022",
+      description: "Boosted NLP model accuracy by 7% and processing speed by 2% through parameter optimization. Developed financial event classification systems compatible with quantitative trading algorithms using Numpy and Pandas."
     }
-  ]
+  ];
 
   // Auto-play music on page load
   useEffect(() => {
@@ -317,7 +315,7 @@ function App() {
       {/* Background Audio Player */}
       <audio 
         ref={audioRef} 
-        src="https://m801.music.126.net/20250507191729/f2d5961a8577ba2dab1fa6fc133bce7d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/44800723734/45b2/b55f/40c9/6d4892a1046e754791f36415a2a88b83.mp3?vuutv=ZJbk0YfNuo6uvDRFwNnE+hVupx+AkrESl604oLaYQwkYGXoOn7UTBCDDx4zToeWwCRSVlD03kLOnmFDQ6C7NNbi2zlHqMvOFUT5L2Tm//o/5cppoVFkXdAKf2m9Otfe5Ema2HSkspctSwSYv2lVdZ8I4Xkx/qHzT59HCyG7JZ1R+5kYYK7BqPZ6RXFBqcxBWarHJ58LYZMQ7LZSCOSJDt2q9ZebroxXrldAeOPY7OBwK8UnyRruVzZiO5B2hNVS/faDoj9Q6iucPEAORV7fE+uu+UmlV2utzFGp04MYo+STBprK7xr3DsPHj1peeGdYHPNy2IjRg6Tf8Tz1fFSP2qkB63a1aPbb2OZ8ovk1DhT7sCGCgJ3dNVKom+dQcc5hz" 
+        src="src/assets/blue.mp3" 
         loop
       />
 
