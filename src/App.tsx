@@ -4,6 +4,16 @@ import Spline from '@splinetool/react-spline';
 import Squares from './Squares';
 import { SiJavascript, SiTypescript, SiNextdotjs, SiNodedotjs, SiSass, SiTailwindcss, SiMysql, SiAmazon } from 'react-icons/si';
 import { FaReact, FaPython, FaGitAlt, FaDocker } from 'react-icons/fa';
+import blueAudio from './assets/blue.mp3';
+import bohanImage from './assets/Bohan.jpg';
+import aiDarlingImage from './assets/project/featured/AIDarling.jpg';
+import colordormImage from './assets/project/featured/Colordorm.png';
+import paintAIImage from './assets/project/featured/PaintAI.png';
+import menulensImage from './assets/project/featured/Menulens.jpg';
+import miloImage from './assets/project/featured/milo.jpg';
+import punchImage from './assets/project/featured/punch.png';
+import truckingImage from './assets/project/featured/trucking.png';
+import cybersightImage from './assets/project/featured/cybersight.png';
 
 type Project = {
   id: number
@@ -45,7 +55,7 @@ function App() {
       title: "AI Darlings",
       description: "An AI-powered daily agent for senior companions",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "./src/assets/project/featured/AIDarling.jpg",
+      image: aiDarlingImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -57,7 +67,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "./src/assets/project/featured/Colordorm.png",
+      image: colordormImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -69,7 +79,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "./src/assets/project/featured/PaintAI.png",
+      image: paintAIImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -81,7 +91,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "./src/assets/project/featured/Menulens.jpg",
+      image: menulensImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -93,7 +103,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "./src/assets/project/featured/milo.jpg",
+      image: miloImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -105,7 +115,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "./src/assets/project/featured/punch.png",
+      image: punchImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -117,7 +127,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "./src/assets/project/featured/trucking.png",
+      image: truckingImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -129,7 +139,7 @@ function App() {
       title: "AI Music Generator",
       description: "Next-gen music generation using deep learning models",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: "./src/assets/project/featured/cybersight.png",
+      image: cybersightImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
@@ -315,7 +325,7 @@ function App() {
       {/* Background Audio Player */}
       <audio 
         ref={audioRef} 
-        src="./src/assets/blue.mp3" 
+        src={blueAudio} 
         loop
       />
 
@@ -365,7 +375,7 @@ function App() {
         <div className="space-y-8 relative group">
                   <div className="relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-500 hover:shadow-3xl">
                     <img 
-                      src="./src/assets/Bohan.jpg" 
+                      src={bohanImage} 
                       alt="Bohan Wang"
                       className="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105"
                     />
@@ -408,7 +418,7 @@ function App() {
                                 McGill U4 Comp Eng
                               </h2>
                               <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
-                              My name is Bohan Wang, a Full Stack Developer interested in large language models (LLM) job and projects. I’m passionate about building innovative web applications and exploring new AI technologies. 
+                              My name is Bohan Wang, a Full Stack Developer interested in large language models (LLM) job and projects. I'm passionate about building innovative web applications and exploring new AI technologies. 
                               </p>
                             </div>
                         </div>
