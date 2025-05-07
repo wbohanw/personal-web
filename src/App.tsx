@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
-// import Spline from '@splinetool/react-spline/next';
-
+import Spline from '@splinetool/react-spline';
+import Squares from './Squares';
 
 type Project = {
   id: number
@@ -16,7 +16,9 @@ type Project = {
 }
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(() => 
+    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  )
   const [activeSection, setActiveSection] = useState('projects')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [showDescription, setShowDescription] = useState(false)
@@ -24,6 +26,7 @@ function App() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioAllowed, setAudioAllowed] = useState(false)
+  const [needsUserInteraction, setNeedsUserInteraction] = useState(true)
   const mainRef = useRef<HTMLDivElement>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
 
@@ -114,10 +117,10 @@ function App() {
     }
   ]
 
-  // Music auto-play functionality
+  // Auto-play music on page load
   useEffect(() => {
-    if (audioAllowed && audioRef.current) {
-      audioRef.current.volume = 0.3; // Set lower volume
+    if (audioAllowed && audioRef.current && !needsUserInteraction) {
+      audioRef.current.volume = 0.3;
       audioRef.current.play().then(() => {
         setIsPlaying(true);
       }).catch(error => {
@@ -125,7 +128,7 @@ function App() {
         setIsPlaying(false);
       });
     }
-  }, [audioAllowed]);
+  }, [audioAllowed, needsUserInteraction]);
 
   // Toggle music play/pause
   const toggleMusic = () => {
@@ -176,7 +179,22 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Toggle dark mode
+  // Add a useEffect to listen for system preference changes
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setDarkMode(e.matches)
+    }
+    
+    // Add event listener
+    mediaQuery.addEventListener('change', handleChange)
+    
+    // Clean up
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  // Existing dark mode effect remains the same
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark')
@@ -203,9 +221,6 @@ function App() {
   const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
     const cardRef = useRef<HTMLDivElement>(null)
     const [isHovered, setIsHovered] = useState(false)
-    
-    const randomRotation = Math.floor(Math.random() * 5) * (Math.random() > 0.5 ? 1 : -1)
-    const randomOffset = Math.floor(Math.random() * 10)
 
     return (
       <div
@@ -214,7 +229,7 @@ function App() {
         style={{ 
           clipPath: isHovered 
             ? 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' 
-            : `polygon(${randomOffset}px ${randomOffset}px, calc(100% - ${randomOffset}px) ${randomOffset}px, calc(100% - ${randomOffset}px) calc(100% - ${randomOffset}px), ${randomOffset}px calc(100% - ${randomOffset}px))`
+            : 'polygon(10px 10px, calc(100% - 10px) 10px, calc(100% - 10px) calc(100% - 10px), 10px calc(100% - 10px))'
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -233,9 +248,6 @@ function App() {
               <span 
                 key={i}
                 className="px-3 py-1 text-xs font-medium bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300"
-                style={{ 
-                  borderRadius: `${Math.random() * 10 + 10}px ${Math.random() * 10 + 10}px ${Math.random() * 10 + 10}px ${Math.random() * 10 + 10}px`
-                }}
               >
                 {tag}
               </span>
@@ -260,15 +272,46 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen font-sans antialiased overflow-x-hidden bg-white dark:bg-black transition-colors duration-300">
+    <div className="min-h-screen font-sans antialiased overflow-x-hidden transition-colors duration-300">
+      {/* Squares Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <Squares 
+          speed={0.5} 
+          squareSize={40}
+          direction='diagonal'
+          borderColor={darkMode ? '#333' : '#e5e5e5'}
+          hoverFillColor={darkMode ? '#222' : '#f3f3f3'}
+        />
+        <div className="absolute inset-0 bg-white/70 dark:bg-black/70 backdrop-blur-[1px]" />
+      </div>
+
+      {/* Add an overlay for first-time visitors */}
+      {needsUserInteraction && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center">
+          <div className="text-center p-8 max-w-md">
+            <h2 className="text-3xl font-bold text-white mb-6">Welcome to My Portfolio</h2>
+            <p className="text-gray-300 mb-8">This site includes an audio experience. Click below to continue with music.</p>
+            <button 
+              onClick={() => {
+                setNeedsUserInteraction(false);
+                setAudioAllowed(true);
+              }}
+              className="px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-colors"
+            >
+              Enter with Music
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Background Audio Player */}
       <audio 
         ref={audioRef} 
-        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" 
+        src="https://eu-central.storage.cloudconvert.com/tasks/1e16d12a-d972-4e22-a8d5-f8f47607e69d/yung%20kai%20-%20blue%20%28official%20music%20video%29%20-%20yung%20kai%20%28360p%2C%20h264%29.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20250507%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20250507T054355Z&X-Amz-Expires=86400&X-Amz-Signature=47a2a188d54c607c9ed5fd357e7f138b5fe6436bb25198c965803ae7249948cd&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22yung%20kai%20-%20blue%20%28official%20music%20video%29%20-%20yung%20kai%20%28360p%2C%20h264%29.mp3%22&response-content-type=audio%2Fmpeg&x-id=GetObject" 
         loop
       />
 
-      {/* Music Control Button */}
+      {/* Music Control Button
       <div className="fixed left-8 bottom-8 z-50 flex items-center gap-3">
         {!audioAllowed ? (
           <button 
@@ -310,46 +353,12 @@ function App() {
             ))}
           </div>
         )}
-      </div>
-
-      {/* Floating Navigation */}
-      <div className="fixed -left-16 top-1/2 -translate-y-1/2 transform rotate-90 z-50 flex items-center space-x-12 px-6 py-4 bg-gray-100 dark:bg-gray-900 shadow-lg rounded-t-lg">
-        <button 
-          onClick={() => scrollToSection('projects')}
-          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
-        >
-          Projects
-        </button>
-        <button 
-          onClick={() => scrollToSection('experience')}
-          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
-        >
-          Experience
-        </button>
-        <button 
-          onClick={() => scrollToSection('about')}
-          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black dark:text-white' : ''}`}
-        >
-          About
-        </button>
-      </div>
-
-      {/* Dark Mode Toggle - Corner Circle */}
-      <button 
-        onClick={() => setDarkMode(!darkMode)}
-        className="fixed right-8 top-8 w-12 h-12 flex items-center justify-center rounded-full bg-gray-900 dark:bg-white text-white dark:text-black shadow-lg z-50 transform hover:scale-110 transition-transform duration-300"
-        aria-label="Toggle Dark Mode"
-      >
-        {darkMode ? (
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-        ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        )}
-      </button>
+      </div> */}
+      {/* <Spline 
+        scene="https://prod.spline.design/SaiarIHVInH3Qiv3/scene.splinecode" 
+        onClick={toggleMusic}
+        style={{ cursor: 'pointer' }}
+      /> */}
 
       {/* Progress Indicator */}
       <div className="fixed right-8 top-1/2 transform -translate-y-1/2 h-48 w-1 bg-gray-200 dark:bg-gray-800 z-40 rounded-full overflow-hidden">
@@ -362,15 +371,15 @@ function App() {
       {/* Main Content with Diagonal Sections */}
       <main ref={mainRef} className="relative">
         {/* Hero Section - Diagonal Split */}
-        <section className="min-h-screen grid grid-cols-1 md:grid-cols-3 relative">
-          <div className="md:col-span-2 flex flex-col justify-center px-12 md:px-24 py-24">
+        <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative pl-10">
+          <div className="md:col-span-1 flex flex-col justify-center px-12 md:px-24 py-24 text-center md:text-left">
             <h1 className="text-6xl md:text-8xl font-bold mb-8 text-black dark:text-white leading-tight">
-              Your<br/>Name
+              Bohan<br/>Wang
             </h1>
-            <p className="text-xl max-w-xl text-gray-600 dark:text-gray-400 mb-12">
+            <p className="text-xl max-w-xl mx-auto md:mx-0 text-gray-600 dark:text-gray-400 mb-12">
               Creative developer with a passion for building beautiful, interactive digital experiences.
             </p>
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-6 justify-center md:justify-start">
               <button className="px-8 py-3 bg-black hover:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
                 Download CV
               </button>
@@ -379,24 +388,18 @@ function App() {
               </button>
             </div>
           </div>
-          <div className="hidden md:block relative overflow-hidden">
-            <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 transform -skew-x-6" />
-            <div className="absolute inset-0 flex items-center justify-center p-12">
-              <div className="w-64 h-64 rounded-full overflow-hidden border-8 border-white dark:border-gray-800 shadow-2xl transform hover:rotate-6 transition-transform duration-500">
-                <img 
-                  src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Profile" 
-                  className="w-full h-full object-cover" 
-                />
-              </div>
+            <div className="md:block w-full ">
+              <Spline 
+                scene="https://prod.spline.design/SaiarIHVInH3Qiv3/scene.splinecode" 
+                onClick={toggleMusic}
+                style={{ cursor: 'pointer' }}
+              />
             </div>
-          </div>
         </section>
 
         {/* Projects Section - Asymmetric Grid */}
-        <section id="projects" className="min-h-screen px-8 md:px-16 py-24 relative">
-          <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white dark:from-black to-transparent z-10" />
-          
+        <section id="projects" className="border-t border-gray-800 dark:border-gray-200 min-h-screen px-8 md:px-16 py-24 relative">
+
           <h2 className="text-5xl font-bold mb-16 text-black dark:text-white -rotate-1 transform translate-x-6">
             Featured Projects
           </h2>
@@ -505,7 +508,7 @@ function App() {
           <div className="container mx-auto px-6 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-start">
               <div className="mb-8 md:mb-0">
-                <h2 className="text-3xl font-bold mb-4">Your Name</h2>
+                <h2 className="text-3xl font-bold mb-4">Bohan Wang</h2>
                 <p className="text-gray-400 dark:text-gray-600">© {new Date().getFullYear()} All Rights Reserved</p>
               </div>
               
@@ -631,6 +634,52 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Mobile Top Navigation */}
+      <div className="fixed top-0 left-0 right-0 md:hidden z-50 bg-gray-100 dark:bg-gray-900 shadow-lg">
+        <div className="flex justify-center items-center space-x-8 px-6 py-4">
+          <button 
+            onClick={() => scrollToSection('projects')}
+            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
+          >
+            Projects
+          </button>
+          <button 
+            onClick={() => scrollToSection('experience')}
+            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
+          >
+            Experience
+          </button>
+          <button 
+            onClick={() => scrollToSection('about')}
+            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black dark:text-white' : ''}`}
+          >
+            About
+          </button>
+        </div>
+      </div>
+
+      {/* Floating Side Navigation - Hide on mobile */}
+      <div className="fixed -left-32 top-1/2 -translate-y-1/2 transform rotate-90 z-50 hidden md:flex items-center space-x-12 px-6 py-4 bg-gray-100 dark:bg-gray-900 shadow-lg rounded-t-lg">
+        <button 
+          onClick={() => scrollToSection('projects')}
+          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
+        >
+          Projects
+        </button>
+        <button 
+          onClick={() => scrollToSection('experience')}
+          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
+        >
+          Experience
+        </button>
+        <button 
+          onClick={() => scrollToSection('about')}
+          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black dark:text-white' : ''}`}
+        >
+          About
+        </button>
+      </div>
     </div>
   )
 }
