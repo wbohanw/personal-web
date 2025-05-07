@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import Spline from '@splinetool/react-spline';
 import Squares from './Squares';
+import { SiJavascript, SiTypescript, SiNextdotjs, SiNodedotjs, SiSass, SiTailwindcss, SiMysql, SiAmazon } from 'react-icons/si';
+import { FaReact, FaPython, FaGitAlt, FaDocker } from 'react-icons/fa';
 
 type Project = {
   id: number
@@ -13,17 +15,23 @@ type Project = {
     type: 'text' | 'image' | 'video'
     data: string
   }[]
+  colSpan?: number
+  rowSpan?: number
+  borderColor?: string
+  repoUrl: string
+  collaborators?: string[]
+  isFeatured?: boolean
+  projectLink?: string
 }
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => 
     window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
   )
-  const [activeSection, setActiveSection] = useState('projects')
+  const [activeSection, setActiveSection] = useState('Home')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [showDescription, setShowDescription] = useState(false)
   const [scrollY, setScrollY] = useState(0)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioAllowed, setAudioAllowed] = useState(false)
   const [needsUserInteraction, setNeedsUserInteraction] = useState(true)
@@ -34,62 +42,137 @@ function App() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Interactive Data Visualization",
-      description: "A React-based dashboard for visualizing complex datasets with interactive charts and filters.",
-      tags: ["React", "D3.js", "TypeScript"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      content: [
-        { type: 'text', data: 'Created a comprehensive data visualization platform using React and D3.js. The application allows users to interact with complex datasets through customizable charts and graphs.' },
-        { type: 'image', data: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' },
-        { type: 'video', data: 'https://www.example.com/video1.mp4' }
-      ]
+      title: "AI Darlings",
+      description: "An AI-powered daily agent for senior companions",
+      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      image: "src/assets/project/featured/AIDarling.jpg",
+      repoUrl: "https://github.com/yourusername/ai-music",
+      projectLink:"https://github.com/yourusername/ai-music",
+      collaborators: ["@collab1", "@collab2"],
+      isFeatured: true,
+      content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
       id: 2,
-      title: "AI-Powered Content Generator",
-      description: "An application that uses machine learning to generate high-quality content based on user input.",
-      tags: ["Python", "TensorFlow", "NLP"],
-      image: "https://images.unsplash.com/photo-1677442135071-c453979243d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      content: [
-        { type: 'text', data: 'Developed an AI-powered content generation tool using Python and TensorFlow. The system leverages natural language processing to create coherent and contextually relevant content.' },
-        { type: 'image', data: 'https://images.unsplash.com/photo-1677442135071-c453979243d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' }
-      ]
+      title: "AI Music Generator",
+      description: "Next-gen music generation using deep learning models",
+      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      image: "src/assets/project/featured/Colordorm.png",
+      repoUrl: "https://github.com/yourusername/ai-music",
+      projectLink:"https://github.com/yourusername/ai-music",
+      collaborators: ["@collab1", "@collab2"],
+      isFeatured: true,
+      content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
       id: 3,
-      title: "E-commerce Platform Redesign",
-      description: "A complete redesign of an e-commerce platform focusing on user experience and conversion optimization.",
-      tags: ["UX/UI", "Next.js", "Tailwind CSS"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      content: [
-        { type: 'text', data: 'Led the complete redesign of an e-commerce platform, focusing on improving user experience and conversion rates. Implemented modern UI elements and streamlined checkout process.' },
-        { type: 'image', data: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' },
-        { type: 'video', data: 'https://www.example.com/video2.mp4' }
-      ]
+      title: "AI Music Generator",
+      description: "Next-gen music generation using deep learning models",
+      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      image: "src/assets/project/featured/PaintAI.png",
+      repoUrl: "https://github.com/yourusername/ai-music",
+      projectLink:"https://github.com/yourusername/ai-music",
+      collaborators: ["@collab1", "@collab2"],
+      isFeatured: true,
+      content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
       id: 4,
-      title: "Blockchain-based Supply Chain Tracker",
-      description: "A supply chain management system built on blockchain technology for enhanced transparency and security.",
-      tags: ["Blockchain", "Solidity", "React"],
-      image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      content: [
-        { type: 'text', data: 'Built a blockchain-based supply chain tracking system that enhances transparency and security throughout the logistics process. Implemented smart contracts using Solidity.' },
-        { type: 'image', data: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' }
-      ]
+      title: "AI Music Generator",
+      description: "Next-gen music generation using deep learning models",
+      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      image: "src/assets/project/featured/Menulens.jpg",
+      repoUrl: "https://github.com/yourusername/ai-music",
+      projectLink:"https://github.com/yourusername/ai-music",
+      collaborators: ["@collab1", "@collab2"],
+      isFeatured: true,
+      content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
       id: 5,
-      title: "Mobile Health App",
-      description: "A mobile application focused on personal health tracking and wellness advice.",
-      tags: ["React Native", "Firebase", "Health API"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      content: [
-        { type: 'text', data: 'Designed and developed a mobile health application that helps users track fitness goals, monitor vital signs, and receive personalized wellness recommendations.' },
-        { type: 'image', data: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' },
-        { type: 'video', data: 'https://www.example.com/video3.mp4' }
-      ]
-    }
+      title: "AI Music Generator",
+      description: "Next-gen music generation using deep learning models",
+      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      image: "src/assets/project/featured/milo.jpg",
+      repoUrl: "https://github.com/yourusername/ai-music",
+      projectLink:"https://github.com/yourusername/ai-music",
+      collaborators: ["@collab1", "@collab2"],
+      isFeatured: true,
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    {
+      id: 6,
+      title: "AI Music Generator",
+      description: "Next-gen music generation using deep learning models",
+      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      image: "src/assets/project/featured/punch.png",
+      repoUrl: "https://github.com/yourusername/ai-music",
+      projectLink:"https://github.com/yourusername/ai-music",
+      collaborators: ["@collab1", "@collab2"],
+      isFeatured: true,
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    {
+      id: 7,
+      title: "AI Music Generator",
+      description: "Next-gen music generation using deep learning models",
+      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      image: "src/assets/project/featured/trucking.png",
+      repoUrl: "https://github.com/yourusername/ai-music",
+      projectLink:"https://github.com/yourusername/ai-music",
+      collaborators: ["@collab1", "@collab2"],
+      isFeatured: true,
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    {
+      id: 8,
+      title: "AI Music Generator",
+      description: "Next-gen music generation using deep learning models",
+      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      image: "src/assets/project/featured/cybersight.png",
+      repoUrl: "https://github.com/yourusername/ai-music",
+      projectLink:"https://github.com/yourusername/ai-music",
+      collaborators: ["@collab1", "@collab2"],
+      isFeatured: true,
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    {
+      id: 9,
+      title: "E-commerce Platform",
+      description: "Full-stack shopping platform with real-time analytics",
+      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      image: "https://example.com/ecommerce.jpg",
+      repoUrl: "https://github.com/yourusername/ecommerce",
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    {
+      id: 10,
+      title: "E-commerce Platform",
+      description: "Full-stack shopping platform with real-time analytics",
+      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      image: "https://example.com/ecommerce.jpg",
+      repoUrl: "https://github.com/yourusername/ecommerce",
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    {
+      id: 11,
+      title: "E-commerce Platform",
+      description: "Full-stack shopping platform with real-time analytics",
+      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      image: "https://example.com/ecommerce.jpg",
+      repoUrl: "https://github.com/yourusername/ecommerce",
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    {
+      id: 12,
+      title: "E-commerce Platform",
+      description: "Full-stack shopping platform with real-time analytics",
+      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      image: "https://example.com/ecommerce.jpg",
+      repoUrl: "https://github.com/yourusername/ecommerce",
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    // Add at least 4 more projects
   ]
 
   // Experience data - replace with your actual experience
@@ -149,27 +232,6 @@ function App() {
     }
   };
 
-  // Asymmetric grid layout configuration
-  const getGridLayout = (index: number) => {
-    const layouts = [
-      'col-span-2 row-span-2 h-[550px] -rotate-1 translate-y-6',
-      'col-span-1 row-span-1 h-[280px] rotate-1 translate-x-4',
-      'col-span-1 row-span-2 h-[450px] -rotate-1 -translate-x-2',
-      'col-span-2 row-span-1 h-[320px] rotate-2 translate-y-4',
-      'col-span-1 row-span-1 h-[300px] -rotate-2 translate-x-6',
-    ];
-    return layouts[index % layouts.length];
-  };
-
-  // Track cursor position for interactive elements
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   // Scroll event listener
   useEffect(() => {
     const handleScroll = () => {
@@ -203,63 +265,11 @@ function App() {
     }
   }, [darkMode])
 
-  // Function to handle project click
-  const handleProjectClick = (project: Project) => {
-    setSelectedProject(project)
-    setShowDescription(true)
-    document.body.style.overflow = 'hidden'
-  }
-
   // Function to close project description
   const closeProjectDescription = () => {
     setShowDescription(false)
     document.body.style.overflow = ''
     setTimeout(() => setSelectedProject(null), 300)
-  }
-
-  // Project card with distorted hover effect
-  const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
-    const cardRef = useRef<HTMLDivElement>(null)
-    const [isHovered, setIsHovered] = useState(false)
-
-    return (
-      <div
-        ref={cardRef}
-        className={`group relative overflow-hidden ${getGridLayout(index)} transition-all duration-700`}
-        style={{ 
-          clipPath: isHovered 
-            ? 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' 
-            : 'polygon(10px 10px, calc(100% - 10px) 10px, calc(100% - 10px) calc(100% - 10px), 10px calc(100% - 10px))'
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onClick={() => handleProjectClick(project)}
-      >
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          style={{ backgroundImage: `url(${project.image})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
-        <div 
-          className={`absolute bottom-0 left-0 right-0 p-6 text-white z-10 space-y-3 transition-transform duration-500 ${isHovered ? 'translate-y-0' : 'translate-y-6'}`}
-        >
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag, i) => (
-              <span 
-                key={i}
-                className="px-3 py-1 text-xs font-medium bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <h3 className="text-2xl font-bold drop-shadow-md">{project.title}</h3>
-          <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {project.description}
-          </p>
-        </div>
-      </div>
-    )
   }
 
   // Section scroll handler
@@ -282,7 +292,7 @@ function App() {
           borderColor={darkMode ? '#333' : '#e5e5e5'}
           hoverFillColor={darkMode ? '#222' : '#f3f3f3'}
         />
-        <div className="absolute inset-0 bg-white/70 dark:bg-black/70 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-white/40 dark:bg-black/70 backdrop-blur-[1px]" />
       </div>
 
       {/* Add an overlay for first-time visitors */}
@@ -307,58 +317,9 @@ function App() {
       {/* Background Audio Player */}
       <audio 
         ref={audioRef} 
-        src="https://eu-central.storage.cloudconvert.com/tasks/1e16d12a-d972-4e22-a8d5-f8f47607e69d/yung%20kai%20-%20blue%20%28official%20music%20video%29%20-%20yung%20kai%20%28360p%2C%20h264%29.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20250507%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20250507T054355Z&X-Amz-Expires=86400&X-Amz-Signature=47a2a188d54c607c9ed5fd357e7f138b5fe6436bb25198c965803ae7249948cd&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22yung%20kai%20-%20blue%20%28official%20music%20video%29%20-%20yung%20kai%20%28360p%2C%20h264%29.mp3%22&response-content-type=audio%2Fmpeg&x-id=GetObject" 
+        src="https://m801.music.126.net/20250507191729/f2d5961a8577ba2dab1fa6fc133bce7d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/44800723734/45b2/b55f/40c9/6d4892a1046e754791f36415a2a88b83.mp3?vuutv=ZJbk0YfNuo6uvDRFwNnE+hVupx+AkrESl604oLaYQwkYGXoOn7UTBCDDx4zToeWwCRSVlD03kLOnmFDQ6C7NNbi2zlHqMvOFUT5L2Tm//o/5cppoVFkXdAKf2m9Otfe5Ema2HSkspctSwSYv2lVdZ8I4Xkx/qHzT59HCyG7JZ1R+5kYYK7BqPZ6RXFBqcxBWarHJ58LYZMQ7LZSCOSJDt2q9ZebroxXrldAeOPY7OBwK8UnyRruVzZiO5B2hNVS/faDoj9Q6iucPEAORV7fE+uu+UmlV2utzFGp04MYo+STBprK7xr3DsPHj1peeGdYHPNy2IjRg6Tf8Tz1fFSP2qkB63a1aPbb2OZ8ovk1DhT7sCGCgJ3dNVKom+dQcc5hz" 
         loop
       />
-
-      {/* Music Control Button
-      <div className="fixed left-8 bottom-8 z-50 flex items-center gap-3">
-        {!audioAllowed ? (
-          <button 
-            onClick={() => setAudioAllowed(true)}
-            className="flex items-center justify-center p-3 bg-black dark:bg-white text-white dark:text-black rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300"
-          >
-            <span className="text-xs font-medium mr-2">Play Music</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </button>
-        ) : (
-          <button 
-            onClick={toggleMusic}
-            className="flex items-center justify-center p-3 bg-black/80 dark:bg-white/80 text-white dark:text-black rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300"
-          >
-            {isPlaying ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            )}
-          </button>
-        )}
-        
-        {isPlaying && (
-          <div className="flex items-center gap-1 h-4">
-            {[...Array(4)].map((_, i) => (
-              <div 
-                key={i} 
-                className="w-0.5 h-full bg-black dark:bg-white rounded-full animate-sound-wave" 
-                style={{ animationDelay: `${i * 0.2}s` }}
-              ></div>
-            ))}
-          </div>
-        )}
-      </div> */}
-      {/* <Spline 
-        scene="https://prod.spline.design/SaiarIHVInH3Qiv3/scene.splinecode" 
-        onClick={toggleMusic}
-        style={{ cursor: 'pointer' }}
-      /> */}
 
       {/* Progress Indicator */}
       <div className="fixed right-8 top-1/2 transform -translate-y-1/2 h-48 w-1 bg-gray-200 dark:bg-gray-800 z-40 rounded-full overflow-hidden">
@@ -371,7 +332,7 @@ function App() {
       {/* Main Content with Diagonal Sections */}
       <main ref={mainRef} className="relative">
         {/* Hero Section - Diagonal Split */}
-        <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative pl-10">
+        <section id="home" className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative pl-10">
           <div className="md:col-span-1 flex flex-col justify-center px-12 md:px-24 py-24 text-center md:text-left">
             <h1 className="text-6xl md:text-8xl font-bold mb-8 text-black dark:text-white leading-tight">
               Bohan<br/>Wang
@@ -397,22 +358,157 @@ function App() {
             </div>
         </section>
 
-        {/* Projects Section - Asymmetric Grid */}
-        <section id="projects" className="border-t border-gray-800 dark:border-gray-200 min-h-screen px-8 md:px-16 py-24 relative">
-
-          <h2 className="text-5xl font-bold mb-16 text-black dark:text-white -rotate-1 transform translate-x-6">
-            Featured Projects
-          </h2>
+        {/* About Section - Split Layout */}
+        <section id="about" className="min-h-screen relative py-24 px-8 md:px-16">
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-auto">
-            {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+        <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <div className="space-y-8 relative group">
+                  <div className="relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-500 hover:shadow-3xl">
+                    <img 
+                      src="src/assets/Bohan.jpg" 
+                      alt="Bohan Wang"
+                      className="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  </div>
+                  
+                </div>
+                <div className='flex flex-col justify-center items-center'>
+
+                    <div className="grid grid-cols-4 gap-2 p-10">
+                          {[
+                            { name: 'JavaScript', Icon: SiJavascript },
+                            { name: 'TypeScript', Icon: SiTypescript },
+                            { name: 'React', Icon: FaReact },
+                            { name: 'Next.js', Icon: SiNextdotjs },
+                            { name: 'Node.js', Icon: SiNodedotjs },
+                            { name: 'CSS/SCSS', Icon: SiSass },
+                            { name: 'Tailwind', Icon: SiTailwindcss },
+                            { name: 'Git', Icon: FaGitAlt },
+                            { name: 'Python', Icon: FaPython },
+                            { name: 'SQL', Icon: SiMysql },
+                            { name: 'Docker', Icon: FaDocker },
+                            { name: 'AWS', Icon: SiAmazon },
+                          ].map((skill, i) => (
+                            <div 
+                              key={i} 
+                              className="aspect-square flex flex-col items-center justify-center bg-white dark:bg-black p-4 shadow-md transform hover:rotate-3 hover:scale-110 transition-all duration-300 space-y-2"
+                              style={{ 
+                                transform: `rotate(${(i % 4) * 3 - 4}deg)`,
+                                borderRadius: `${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}%`,
+                              }}
+                            >
+                              <skill.Icon className="w-8 h-8 text-gray-800 dark:text-gray-200" />
+                              <span className="text-sm font-medium text-center text-black dark:text-white">{skill.name}</span>
+                            </div>
+                          ))}
+                        </div>
+                          <div className="text-center lg:text-left space-y-4">
+                              <h2 className="text-5xl font-bold bg-gradient-to-r bg-clip-text text-black dark:text-white">
+                                McGill U4 Comp Eng
+                              </h2>
+                              <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+                              My name is Bohan Wang, a Full Stack Developer interested in large language models (LLM) job and projects. I’m passionate about building innovative web applications and exploring new AI technologies. 
+                              </p>
+                            </div>
+                        </div>
+                </div>
+              </div>
+        </section>
+        {/* Projects Section - Asymmetric Grid */}
+        <section id="projects" className="min-h-screen px-8 md:px-16 py-24 relative">
+          <h2 className="text-5xl font-bold mb-16 text-black dark:text-white -rotate-1 transform translate-x-6">
+            Oh, you're here? These are some of my projects, don't miss the repo:)
+          </h2>
+
+          {/* Featured Project */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {projects.filter(p => p.isFeatured).map(project => (
+              <div key={project.id} className="relative group h-96 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/80 to-black/90 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold text-white p-2 rounded-lg">{project.title}</h3>
+                    <p className="text-gray-300 text-lg">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, i) => (
+                        <span 
+                          key={i}
+                          className="px-3 py-1 text-sm bg-white/10 backdrop-blur-sm text-white rounded-full hover:bg-white/20 transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-4 mt-4">
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center hover:scale-105 gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/20 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                        </svg>
+                        View Repository
+                      </a>
+                      <a href={project.projectLink} className="flex border-2 rounded-xl px-2 py-1 cursor-pointer hover:scale-105 border-white gap-2 text-gray-300">
+                        Link Avaliable
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Regular Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
+            {projects.filter(p => !p.isFeatured).map(project => (
+              <div key={project.id} className="group relative h-80 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                  <p className="text-gray-300 text-sm line-clamp-2 mb-3">{project.description}</p>
+                  <div className="flex items-center justify-between">
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-white hover:text-gray-300 transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm">View Code</span>
+                    </a>
+                    <div className="flex -space-x-2">
+                      {project.collaborators?.map((collab, i) => (
+                        <div key={i} className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center text-xs text-white">
+                          {collab}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
         {/* Experience Section - Zigzag Timeline */}
-        <section id="experience" className="min-h-screen px-8 md:px-16 py-24 bg-gray-50 dark:bg-gray-950 relative">
+        <section id="experience" className="min-h-screen px-8 md:px-16 py-24 relative">
           <h2 className="text-5xl font-bold mb-20 text-black dark:text-white transform rotate-1 translate-x-8">
             Work Experience
           </h2>
@@ -445,7 +541,7 @@ function App() {
           </div>
         </section>
 
-        {/* About Section - Split Layout */}
+        {/* About Section - Split Layout
         <section id="about" className="min-h-screen relative">
           <div className="absolute inset-0">
             <div className="h-full w-full md:w-1/2 bg-white dark:bg-black absolute top-0 left-0" />
@@ -475,20 +571,7 @@ function App() {
             <div className="px-8 md:px-16 py-24 flex flex-col justify-center">
               <h3 className="text-2xl font-bold mb-8 text-black dark:text-white">Skills</h3>
               
-              <div className="grid grid-cols-4 gap-6">
-                {['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'CSS/SCSS', 'Tailwind', 'Git'].map((skill, i) => (
-                  <div 
-                    key={i} 
-                    className="aspect-square flex items-center justify-center bg-white dark:bg-black p-4 shadow-md transform hover:rotate-3 hover:scale-110 transition-all duration-300"
-                    style={{ 
-                      transform: `rotate(${(i % 4) * 3 - 4}deg)`,
-                      borderRadius: `${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}%`,
-                    }}
-                  >
-                    <span className="text-sm font-medium text-center text-black dark:text-white">{skill}</span>
-                  </div>
-                ))}
-              </div>
+
               
               <div className="mt-12 relative">
                 <div className="rounded-xl overflow-hidden shadow-lg transform rotate-2 transition-transform duration-500 hover:rotate-0">
@@ -501,7 +584,7 @@ function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Footer */}
         <footer className="bg-black dark:bg-white text-white dark:text-black py-12 relative overflow-hidden">
@@ -530,21 +613,6 @@ function App() {
                 </a>
               </div>
             </div>
-          </div>
-          <div className="absolute inset-0 opacity-30">
-            {Array.from({ length: 20 }).map((_, i) => (
-              <div 
-                key={i}
-                className="absolute bg-gray-400 dark:bg-gray-700"
-                style={{
-                  width: `${Math.random() * 300 + 50}px`,
-                  height: '1px',
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  transform: `rotate(${Math.random() * 360}deg)`,
-                }}
-              />
-            ))}
           </div>
         </footer>
       </main>
@@ -639,16 +707,10 @@ function App() {
       <div className="fixed top-0 left-0 right-0 md:hidden z-50 bg-gray-100 dark:bg-gray-900 shadow-lg">
         <div className="flex justify-center items-center space-x-8 px-6 py-4">
           <button 
-            onClick={() => scrollToSection('projects')}
-            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
+            onClick={() => scrollToSection('home')}
+            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'home' ? 'font-bold text-black dark:text-white' : ''}`}
           >
-            Projects
-          </button>
-          <button 
-            onClick={() => scrollToSection('experience')}
-            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
-          >
-            Experience
+            Home
           </button>
           <button 
             onClick={() => scrollToSection('about')}
@@ -656,11 +718,36 @@ function App() {
           >
             About
           </button>
+          <button 
+            onClick={() => scrollToSection('projects')}
+            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
+          >
+            Projects
+          </button>
+
+          <button 
+            onClick={() => scrollToSection('experience')}
+            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
+          >
+            Experience
+          </button>
         </div>
       </div>
 
       {/* Floating Side Navigation - Hide on mobile */}
-      <div className="fixed -left-32 top-1/2 -translate-y-1/2 transform rotate-90 z-50 hidden md:flex items-center space-x-12 px-6 py-4 bg-gray-100 dark:bg-gray-900 shadow-lg rounded-t-lg">
+      <div className="fixed -left-44 top-1/2 -translate-y-1/2 transform rotate-90 z-50 hidden md:flex items-center space-x-12 px-6 py-4 bg-gray-100 dark:bg-gray-900 shadow-lg rounded-t-lg">
+        <button 
+          onClick={() => scrollToSection('home')}
+          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'home' ? 'font-bold text-black dark:text-white' : ''}`}
+        >
+          Home
+        </button>
+        <button 
+          onClick={() => scrollToSection('about')}
+          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black dark:text-white' : ''}`}
+        >
+          About
+        </button>
         <button 
           onClick={() => scrollToSection('projects')}
           className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
@@ -672,12 +759,6 @@ function App() {
           className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
         >
           Experience
-        </button>
-        <button 
-          onClick={() => scrollToSection('about')}
-          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black dark:text-white' : ''}`}
-        >
-          About
         </button>
       </div>
     </div>
