@@ -14,7 +14,13 @@ import miloImage from './assets/project/featured/milo.jpg';
 import punchImage from './assets/project/featured/punch.png';
 import truckingImage from './assets/project/featured/trucking.png';
 import cybersightImage from './assets/project/featured/cybersight.png';
-
+import assetplusImage from './assets/project/regular/assetplus.png';
+import robohacksImage from './assets/project/regular/robohack.jpg';
+import game2Image from './assets/project/regular/game2.png';
+import robotImage from './assets/project/regular/211robot.png';
+import CPUImage from './assets/project/regular/16bitCPU.png';
+import cityswImage from './assets/project/regular/citysw.jpg';
+import CVpdf from './CV-2025.pdf';
 type Project = {
   id: number
   title: string
@@ -53,7 +59,7 @@ function App() {
     {
       id: 1,
       title: "AI Darlings",
-      description: "An AI-powered daily agent for senior companions",
+      description: "An AI-powered daily agent for senior companions, improve their daily well-being",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
       image: aiDarlingImage,
       repoUrl: "https://github.com/yourusername/ai-music",
@@ -64,9 +70,9 @@ function App() {
     },
     {
       id: 2,
-      title: "AI Music Generator",
-      description: "Next-gen music generation using deep learning models",
-      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      title: "ColorDorm",
+      description: "Next-gen Color inspiration for UI designers, feels like your dorm rooms",
+      tags: ["React", "TypeScript"],
       image: colordormImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
@@ -76,9 +82,9 @@ function App() {
     },
     {
       id: 3,
-      title: "AI Music Generator",
-      description: "Next-gen music generation using deep learning models",
-      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      title: "PaintAI",
+      description: "Using AI to convert 2D arts to 3D AI game platform",
+      tags: ["AI/ML", "OpenCV", "React", "TypeScript"],
       image: paintAIImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
@@ -88,9 +94,9 @@ function App() {
     },
     {
       id: 4,
-      title: "AI Music Generator",
-      description: "Next-gen music generation using deep learning models",
-      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      title: "Menulens",
+      description: "Translation tool generates personalized restaurant menu with interactive features",
+      tags: ["AI/ML", "OpenCV", "React", "TypeScript"],
       image: menulensImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
@@ -100,9 +106,9 @@ function App() {
     },
     {
       id: 5,
-      title: "AI Music Generator",
-      description: "Next-gen music generation using deep learning models",
-      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      title: "Milo AI",
+      description: "AI chat agent helps young teenager with well-being and mental health",
+      tags: ["AI/ML", "CBT Logic", "React", "TypeScript"],
       image: miloImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
@@ -112,21 +118,21 @@ function App() {
     },
     {
       id: 6,
-      title: "AI Music Generator",
-      description: "Next-gen music generation using deep learning models",
-      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      title: "Punch my professor",
+      description: "Using hand-tracking and AI to convert 2D images into 3D models for humorous virtual professor-punching",
+      tags: ["Python", "OpenCV", "Unity", "React", "C#"],
       image: punchImage,
-      repoUrl: "https://github.com/yourusername/ai-music",
-      projectLink:"https://github.com/yourusername/ai-music",
+      repoUrl: "https://github.com/wbohanw/PunchMyProf",
+      projectLink:"https://devpost.com/software/box-my-professor",
       collaborators: ["@collab1", "@collab2"],
       isFeatured: true,
       content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
       id: 7,
-      title: "AI Music Generator",
-      description: "Next-gen music generation using deep learning models",
-      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      title: "Trucking AI",
+      description: "Computer Vision and ML algorithm to optimize trucking routes and reduce fuel consumption",
+      tags: ["Python", "OpenCV", "ML", "React", "TypeScript"],
       image: truckingImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
@@ -136,9 +142,9 @@ function App() {
     },
     {
       id: 8,
-      title: "AI Music Generator",
-      description: "Next-gen music generation using deep learning models",
-      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      title: "Cybersight AI",
+      description: "Helping Blind Visual Impaired people to navigate the world with AI",
+      tags: ["Python", "OpenCV", "TensorFlow", "React-Native", "TypeScript"],
       image: cybersightImage,
       repoUrl: "https://github.com/yourusername/ai-music",
       projectLink:"https://github.com/yourusername/ai-music",
@@ -148,40 +154,49 @@ function App() {
     },
     {
       id: 9,
-      title: "E-commerce Platform",
-      description: "Full-stack shopping platform with real-time analytics",
+      title: "AssetPlus",
+      description: "Full-stack hotel management platform for asset tracking and management",
       tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: "https://example.com/ecommerce.jpg",
+      image: assetplusImage,
       repoUrl: "https://github.com/yourusername/ecommerce",
       content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
       id: 10,
-      title: "E-commerce Platform",
-      description: "Full-stack shopping platform with real-time analytics",
-      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: "https://example.com/ecommerce.jpg",
-      repoUrl: "https://github.com/yourusername/ecommerce",
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 11,
-      title: "E-commerce Platform",
-      description: "Full-stack shopping platform with real-time analytics",
-      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: "https://example.com/ecommerce.jpg",
+      title: "Fire Fighter Robot",
+      description: "Fire Fighter Robot using Raspberry Pi and BrickPi",
+      tags: ["Raspberry Pi", "Arduino", "C++"],
+      image: robohacksImage,
       repoUrl: "https://github.com/yourusername/ecommerce",
       content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
       id: 12,
-      title: "E-commerce Platform",
-      description: "Full-stack shopping platform with real-time analytics",
-      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: "https://example.com/ecommerce.jpg",
+      title: "Cube Loading Robot",
+      description: "BrickPi and Raspberry Pi based robot to load cube into the robot",
+      tags: ["Raspberry Pi", "BrickPi", "Python"],
+      image: robotImage,
       repoUrl: "https://github.com/yourusername/ecommerce",
       content: [{ type: 'text', data: 'Detailed content...' }]
     },
+    {
+      id: 13,
+      title: "16-bit CPU",
+      description: "Full-stack shopping platform with real-time analytics",
+      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      image: CPUImage,
+      repoUrl: "https://github.com/yourusername/ecommerce",
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    },
+    {
+      id: 14,
+      title: "CitySweeper",
+      description: "Full-stack shopping platform with real-time analytics",
+      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      image: cityswImage,
+      repoUrl: "https://github.com/yourusername/ecommerce",
+      content: [{ type: 'text', data: 'Detailed content...' }]
+    }
     // Add at least 4 more projects
   ]
   const experiences = [
@@ -349,12 +364,20 @@ function App() {
               Creative developer with a passion for building beautiful, interactive digital experiences.
             </p>
             <div className="flex flex-wrap gap-6 justify-center md:justify-start">
-              <button className="px-8 py-3 bg-black hover:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
+              <a href={CVpdf} download className="w-48 px-8 py-3 bg-black hover:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
                 Download CV
-              </button>
-              <button className="px-8 py-3 border-2 border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
+              </a>
+              <a href='mailto:bohanwang@mail.mcgill.ca' className="w-48 px-8 py-3 border-2 border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
                 Contact Me
-              </button>
+              </a>
+            </div>
+            <div className="flex flex-wrap mt-4 gap-6 justify-center md:justify-start">
+              <a href='https://github.com/wbohanw' className="w-48 px-8 py-3 border-2 border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
+                GitHub Repo
+              </a>
+              <a href='https://www.linkedin.com/in/bohan-wang-1a71b024a/' className="w-48 px-8 py-3 bg-black hover:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
+                Let's Connect
+              </a>
             </div>
           </div>
             <div className="md:block w-full ">
@@ -442,8 +465,8 @@ function App() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/80 to-black/90 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="space-y-4">
-                    <h3 className="text-3xl font-bold text-white p-2 rounded-lg">{project.title}</h3>
-                    <p className="text-gray-300 text-lg">{project.description}</p>
+                    <h3 className="text-3xl font-bold text-white py-1 rounded-lg">{project.title}</h3>
+                    <p className="text-gray-300 text-md">{project.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, i) => (
                         <span 
@@ -477,7 +500,7 @@ function App() {
           </div>
 
           {/* Regular Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
             {projects.filter(p => !p.isFeatured).map(project => (
               <div key={project.id} className="group relative h-80 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
