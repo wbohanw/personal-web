@@ -16,7 +16,7 @@ import truckingImage from './assets/project/featured/trucking.png';
 import cybersightImage from './assets/project/featured/cybersight.png';
 import assetplusImage from './assets/project/regular/assetplus.png';
 import robohacksImage from './assets/project/regular/robohack.jpg';
-import robotImage from './assets/project/regular/211robot.png';
+import robotImage from './assets/project/regular/211Robot.png';
 import CPUImage from './assets/project/regular/16bitCPU.png';
 import cityswImage from './assets/project/regular/citysw.jpg';
 import CVpdf from './CV-2025.pdf';
