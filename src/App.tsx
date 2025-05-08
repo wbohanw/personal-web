@@ -354,15 +354,15 @@ function App() {
       {/* Main Content with Diagonal Sections */}
       <main ref={mainRef} className="relative">
         {/* Hero Section - Diagonal Split */}
-        <section id="home" className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative pl-10">
+        <section id="home" className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative md:pl-10">
           <div className="md:col-span-1 flex flex-col justify-center px-12 md:px-24 py-24 text-center md:text-left">
             <h1 className="text-6xl md:text-8xl font-bold mb-8 text-black dark:text-white leading-tight">
               Bohan<br/>Wang
             </h1>
-            <p className="text-xl max-w-xl mx-auto md:mx-0 text-gray-600 dark:text-gray-400 mb-12">
+            <p className="text-xl max-w-xl mx-auto md:mx-0 text-gray-600 dark:text-white/80 mb-12">
               Creative developer with a passion for building beautiful, interactive digital experiences.
             </p>
-            <div className="flex flex-wrap gap-6 justify-center md:justify-start">
+            <div className="flex flex-wrap gap-6 justify-center md:justify-start text-center">
               <a href={CVpdf} download className="w-48 px-8 py-3 bg-black hover:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
                 Download CV
               </a>
@@ -370,7 +370,7 @@ function App() {
                 Contact Me
               </a>
             </div>
-            <div className="flex flex-wrap mt-4 gap-6 justify-center md:justify-start">
+            <div className="flex flex-wrap mt-4 gap-6 justify-center md:justify-start text-center">
               <a href='https://github.com/wbohanw' className="w-48 px-8 py-3 border-2 border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
                 GitHub Repo
               </a>
@@ -379,13 +379,21 @@ function App() {
               </a>
             </div>
           </div>
-            <div className="md:block w-full ">
+          <div>
+            <div className="-ml-28 md:ml-0 w-full scale-60 sm:-ml-12 sm:scale-80 md:scale-60 md:-ml-12 lg:scale-100 lg:-ml-24">
               <Spline 
                 scene="https://prod.spline.design/SaiarIHVInH3Qiv3/scene.splinecode" 
                 onClick={toggleMusic}
-                style={{ cursor: 'pointer' }}
+                style={{ 
+                  cursor: 'pointer',
+                  width: '180%',
+                  height: '100%',
+                  maxWidth: '170vw',
+                  transformOrigin: 'center center',
+                }}
               />
             </div>
+          </div>
         </section>
 
         {/* About Section - Split Layout */}
@@ -401,6 +409,7 @@ function App() {
                       alt="Bohan Wang"
                       className="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105"
                     />
+                    <p className='text-white absolute top-1/4 left-1/4 font-serif bg-black/60 p-2 rounded-xl'>Campbell ---- One of the best Prof at Mcgill</p>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   </div>
                   
@@ -436,10 +445,10 @@ function App() {
                           ))}
                         </div>
                           <div className="text-center lg:text-left space-y-4">
-                              <h2 className="text-5xl font-bold bg-gradient-to-r bg-clip-text text-black dark:text-white">
+                              <h2 className="px-12 text-5xl font-bold bg-gradient-to-r bg-clip-text text-black dark:text-white">
                                 McGill U4 Comp Eng
                               </h2>
-                              <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+                              <p className="px-12 text-xl text-gray-600 dark:text-white/90 leading-relaxed max-w-2xl">
                               My name is Bohan Wang, a Full Stack Developer interested in large language models (LLM) job and projects. I'm passionate about building innovative web applications and exploring new AI technologies. 
                               </p>
                             </div>
@@ -448,7 +457,7 @@ function App() {
               </div>
         </section>
         {/* Projects Section - Asymmetric Grid */}
-        <section id="projects" className="min-h-screen px-8 md:px-16 py-24 relative">
+        <section id="projects" className="min-h-screen px-8 md:px-32 py-24 relative">
           <h2 className="text-5xl font-bold mb-16 text-black dark:text-white -rotate-1 transform translate-x-6">
             Oh, you're here? These are some of my projects, don't miss the repo:)
           </h2>
@@ -554,7 +563,7 @@ function App() {
                 <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-right pr-16' : 'text-left pl-16'}`}>
                   <h3 className="text-xl font-bold text-black dark:text-white">{exp.role}</h3>
                   <div className="text-gray-700 dark:text-gray-300 font-medium">{exp.company}</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">{exp.period}</div>
+                  <div className="text-sm italic text-gray-500 dark:text-white">{exp.period}</div>
                 </div>
                 
                 <div className="w-2/12 flex justify-center">
@@ -562,7 +571,7 @@ function App() {
                 </div>
                 
                 <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-left pl-16' : 'text-right pr-16'}`}>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-white/80">
                     {exp.description}
                   </p>
                 </div>
@@ -734,30 +743,30 @@ function App() {
       )}
 
       {/* Mobile Top Navigation */}
-      <div className="fixed top-0 left-0 right-0 md:hidden z-50 bg-gray-100 dark:bg-gray-900 shadow-lg">
+      <div className="fixed top-0 left-0 right-0 md:hidden z-50 bg-gray-100 shadow-lg">
         <div className="flex justify-center items-center space-x-8 px-6 py-4">
           <button 
             onClick={() => scrollToSection('home')}
-            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'home' ? 'font-bold text-black dark:text-white' : ''}`}
+            className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70 cursor-pointer transition-colors duration-300 ${activeSection === 'home' ? 'font-bold text-black dark:text-white' : ''}`}
           >
             Home
           </button>
           <button 
             onClick={() => scrollToSection('about')}
-            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black dark:text-white' : ''}`}
+            className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70 cursor-pointer transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black dark:text-white' : ''}`}
           >
             About
           </button>
           <button 
             onClick={() => scrollToSection('projects')}
-            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
+            className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70 cursor-pointer transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
           >
             Projects
           </button>
 
           <button 
             onClick={() => scrollToSection('experience')}
-            className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
+            className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70 cursor-pointer transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
           >
             Experience
           </button>
@@ -765,28 +774,28 @@ function App() {
       </div>
 
       {/* Floating Side Navigation - Hide on mobile */}
-      <div className="fixed -left-44 top-1/2 -translate-y-1/2 transform rotate-90 z-50 hidden md:flex items-center space-x-12 px-6 py-4 bg-gray-100 dark:bg-gray-900 shadow-lg rounded-t-lg">
+      <div className="fixed -left-44 top-1/2 -translate-y-1/2 transform rotate-90 z-50 hidden md:flex items-center space-x-12 px-6 py-4 bg-gray-100 shadow-lg rounded-t-lg">
         <button 
           onClick={() => scrollToSection('home')}
-          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'home' ? 'font-bold text-black dark:text-white' : ''}`}
+          className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70 cursor-pointer transition-colors duration-300 ${activeSection === 'home' ? 'font-bold text-black' : ''}`}
         >
           Home
         </button>
         <button 
           onClick={() => scrollToSection('about')}
-          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black dark:text-white' : ''}`}
+          className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70 cursor-pointer transition-colors duration-300 ${activeSection === 'about' ? 'font-bold text-black' : ''}`}
         >
           About
         </button>
         <button 
           onClick={() => scrollToSection('projects')}
-          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black dark:text-white' : ''}`}
+          className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70 cursor-pointer transition-colors duration-300 ${activeSection === 'projects' ? 'font-bold text-black' : ''}`}
         >
           Projects
         </button>
         <button 
           onClick={() => scrollToSection('experience')}
-          className={`text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black dark:text-white' : ''}`}
+          className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70  cursor-pointer transition-colors duration-300 ${activeSection === 'experience' ? 'font-bold text-black' : ''}`}
         >
           Experience
         </button>
