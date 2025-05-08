@@ -379,7 +379,7 @@ function App() {
               </a>
             </div>
           </div>
-          <div>
+          <div className="items-center justify-center flex">
             <div className="-ml-28 md:ml-0 w-full scale-60 sm:-ml-12 sm:scale-80 md:scale-60 md:-ml-12 lg:scale-100 lg:-ml-24">
               <Spline 
                 scene="https://prod.spline.design/SaiarIHVInH3Qiv3/scene.splinecode" 
@@ -560,7 +560,7 @@ function App() {
               >
                 <div className="w-8 h-8 absolute left-1/2 transform -translate-x-1/2 bg-black dark:bg-white rounded-full z-10" />
                 
-                <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-right pr-16' : 'text-left pl-16'}`}>
+                <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-right pr-4 md:pr-16' : 'text-left pl-4 md:pl-16'}`}>
                   <h3 className="text-xl font-bold text-black dark:text-white">{exp.role}</h3>
                   <div className="text-gray-700 dark:text-gray-300 font-medium">{exp.company}</div>
                   <div className="text-sm italic text-gray-500 dark:text-white">{exp.period}</div>
@@ -570,8 +570,8 @@ function App() {
                   <div className="w-1 bg-black dark:bg-white h-full rounded-full" />
                 </div>
                 
-                <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-left pl-16' : 'text-right pr-16'}`}>
-                  <p className="text-gray-600 dark:text-white/80">
+                <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-left pl-4 md:pl-16' : 'text-right pr-4 md:pr-16'}`}>
+                  <p className="text-gray-600 dark:text-white/70">
                     {exp.description}
                   </p>
                 </div>
