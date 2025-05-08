@@ -293,6 +293,11 @@ function App() {
     }
   }
 
+  const closeProjectDescription = () => {
+    document.body.style.overflow = ''
+    setSelectedProject(null)
+  }
+
   return (
     <div className="min-h-screen font-sans antialiased overflow-x-hidden transition-colors duration-300">
       {/* Squares Background */}
@@ -458,7 +463,11 @@ function App() {
             {/* Featured Project */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12">
               {projects.filter(p => p.isFeatured).map(project => (
-                <div key={project.id} className="relative group h-96 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer">
+                <div 
+                  key={project.id} 
+                  className="relative group h-96 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer"
+                  onClick={() => setSelectedProject(project)}
+                >
                   <img 
                     src={project.image} 
                     alt={project.title}
