@@ -351,13 +351,15 @@ function App() {
       {/* Main Content with Diagonal Sections */}
       <main ref={mainRef} className="relative">
         {/* Hero Section - Diagonal Split */}
-        <section id="home" className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative md:pl-10">
-          <div className="md:col-span-1 flex flex-col justify-center px-12 md:px-24 py-24 text-center md:text-left">
+        <section id="home" className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative mx-auto px-8 md:px-24 py-24">
+          <div className="md:col-span-1 flex flex-col justify-center text-center md:text-left md:px-16">
             <h1 className="text-6xl md:text-8xl font-bold mb-8 text-black dark:text-white leading-tight">
               Bohan<br/>Wang
             </h1>
-            <p className="text-xl max-w-xl mx-auto md:mx-0 text-gray-600 dark:text-white/80 mb-12">
-              Creative developer with a passion for building beautiful, interactive digital experiences.
+            <p className="text-xl max-w-xl mx-auto md:mx-0 md:text-left text-gray-600 dark:text-white/80">
+              <p className='uppercase  mb-16'>
+              Only 10 types of people<br/> in this beautiful HelloWorld 👋
+              </p>
             </p>
             <div className="flex flex-wrap gap-6 justify-center md:justify-start text-center">
               <a href={CVpdf} download className="w-48 px-8 py-3 bg-black hover:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-medium transition-all duration-300 transform hover:-translate-y-1">
@@ -394,237 +396,202 @@ function App() {
         </section>
 
         {/* About Section - Split Layout */}
-        <section id="about" className="min-h-screen relative py-24 px-8 md:px-16">
-          
-        <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-        <div className="space-y-8 relative group">
-                  <div className="relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-500 hover:shadow-3xl">
-                    <img 
-                      src={bohanImage} 
-                      alt="Bohan Wang"
-                      className="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105"
-                    />
-                    <p className='text-white absolute top-1/4 left-1/4 font-serif bg-black/60 p-2 rounded-xl'>Campbell ---- One of the best Prof at Mcgill</p>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  </div>
-                  
-                </div>
-                <div className='flex flex-col justify-center items-center'>
-
-                    <div className="grid grid-cols-4 gap-2 p-10">
-                          {[
-                            { name: 'JavaScript', Icon: SiJavascript },
-                            { name: 'TypeScript', Icon: SiTypescript },
-                            { name: 'React', Icon: FaReact },
-                            { name: 'Next.js', Icon: SiNextdotjs },
-                            { name: 'Node.js', Icon: SiNodedotjs },
-                            { name: 'CSS/SCSS', Icon: SiSass },
-                            { name: 'Tailwind', Icon: SiTailwindcss },
-                            { name: 'Git', Icon: FaGitAlt },
-                            { name: 'Python', Icon: FaPython },
-                            { name: 'SQL', Icon: SiMysql },
-                            { name: 'Docker', Icon: FaDocker },
-                            { name: 'AWS', Icon: SiAmazon },
-                          ].map((skill, i) => (
-                            <div 
-                              key={i} 
-                              className="aspect-square flex flex-col items-center justify-center bg-white dark:bg-black p-4 shadow-md transform hover:rotate-3 hover:scale-110 transition-all duration-300 space-y-2"
-                              style={{ 
-                                transform: `rotate(${(i % 4) * 3 - 4}deg)`,
-                                borderRadius: `${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}%`,
-                              }}
-                            >
-                              <skill.Icon className="w-8 h-8 text-gray-800 dark:text-gray-200" />
-                              <span className="text-sm font-medium text-center text-black dark:text-white">{skill.name}</span>
-                            </div>
-                          ))}
-                        </div>
-                          <div className="text-center lg:text-left space-y-4">
-                              <h2 className="px-12 text-5xl font-bold bg-gradient-to-r bg-clip-text text-black dark:text-white">
-                                McGill U4 Comp Eng
-                              </h2>
-                              <p className="px-12 text-xl text-gray-600 dark:text-white/90 leading-relaxed max-w-2xl">
-                              My name is Bohan Wang, a Full Stack Developer interested in large language models (LLM) job and projects. I'm passionate about building innovative web applications and exploring new AI technologies. 
-                              </p>
-                            </div>
-                        </div>
+        <section id="about" className="min-h-screen relative px-8 md:px-24 py-24">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-5xl font-bold mb-16 text-black dark:text-white">
+                  About Me ✌️
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8 relative group">
+                <div className="relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-500 hover:shadow-3xl">
+                  <img 
+                    src={bohanImage} 
+                    alt="Bohan Wang"
+                    className="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105"
+                  />
+                  <p className='text-white absolute top-1/4 left-1/4 font-serif bg-black/60 p-2 rounded-xl'>Campbell ---- One of the best Prof at Mcgill</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 </div>
               </div>
+              <div className='flex flex-col justify-center items-center'>
+
+                <div className="grid grid-cols-4 gap-2 p-10">
+                  {[
+                    { name: 'JavaScript', Icon: SiJavascript },
+                    { name: 'TypeScript', Icon: SiTypescript },
+                    { name: 'React', Icon: FaReact },
+                    { name: 'Next.js', Icon: SiNextdotjs },
+                    { name: 'Node.js', Icon: SiNodedotjs },
+                    { name: 'CSS/SCSS', Icon: SiSass },
+                    { name: 'Tailwind', Icon: SiTailwindcss },
+                    { name: 'Git', Icon: FaGitAlt },
+                    { name: 'Python', Icon: FaPython },
+                    { name: 'SQL', Icon: SiMysql },
+                    { name: 'Docker', Icon: FaDocker },
+                    { name: 'AWS', Icon: SiAmazon },
+                  ].map((skill, i) => (
+                    <div 
+                      key={i} 
+                      className="aspect-square flex flex-col items-center justify-center bg-white dark:bg-black p-4 shadow-md transform hover:rotate-3 hover:scale-110 transition-all duration-300 space-y-2"
+                      style={{ 
+                        transform: `rotate(${(i % 4) * 3 - 4}deg)`,
+                        borderRadius: `${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}% ${Math.random() * 20 + 10}%`,
+                      }}
+                    >
+                      <skill.Icon className="w-8 h-8 text-gray-800 dark:text-gray-200" />
+                      <span className="text-sm font-medium text-center text-black dark:text-white">{skill.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="text-center lg:text-left space-y-4">
+                  <h2 className="px-12 text-5xl font-bold bg-gradient-to-r bg-clip-text text-black dark:text-white">
+                    McGill U4 Comp Eng
+                  </h2>
+                  <p className="px-12 text-xl text-gray-600 dark:text-white/90 leading-relaxed max-w-2xl">
+                    My name is Bohan Wang, a Full Stack Developer interested in large language models (LLM) job and projects. I'm passionate about building innovative web applications and exploring new AI technologies. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         {/* Projects Section - Asymmetric Grid */}
-        <section id="projects" className="min-h-screen px-8 md:px-32 py-24 relative">
-          <h2 className="text-5xl font-bold mb-16 text-black dark:text-white -rotate-1 transform translate-x-6">
-            Oh, you're here? These are some of my projects, don't miss the repo:)
-          </h2>
+        <section id="projects" className="min-h-screen px-8 md:px-24 py-24 relative">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-5xl font-bold mb-16 text-black dark:text-white">
+              Oh, you're here? These are some of my projects, don't miss the repo:)
+            </h2>
 
-          {/* Featured Project */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            {projects.filter(p => p.isFeatured).map(project => (
-              <div key={project.id} className="relative group h-96 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/80 to-black/90 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="space-y-4">
-                    <h3 className="text-3xl font-bold text-white py-1 rounded-lg">{project.title}</h3>
-                    <p className="text-gray-300 text-md">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, i) => (
-                        <span 
-                          key={i}
-                          className="px-3 py-1 text-sm bg-white/10 backdrop-blur-sm text-white rounded-full hover:bg-white/20 transition-colors"
+            {/* Featured Project */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12">
+              {projects.filter(p => p.isFeatured).map(project => (
+                <div key={project.id} className="relative group h-96 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/80 to-black/90 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="space-y-4">
+                      <h3 className="text-3xl font-bold text-white py-1 rounded-lg">{project.title}</h3>
+                      <p className="text-gray-300 text-md">{project.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag, i) => (
+                          <span 
+                            key={i}
+                            className="px-3 py-1 text-sm bg-white/10 backdrop-blur-sm text-white rounded-full hover:bg-white/20 transition-colors"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-4 mt-4">
+                        <a
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center hover:scale-105 gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/20 transition-colors"
                         >
-                          {tag}
-                        </span>
-                      ))}
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                          </svg>
+                          View Repository
+                        </a>
+                        {project.projectLink ? (
+                          <a href={project.projectLink} className="flex border-2 rounded-xl px-2 py-1 cursor-pointer hover:scale-105 border-white gap-2 text-gray-300">
+                            Link Available
+                          </a>
+                        ) : (
+                          <span className="flex border-2 rounded-xl px-2 py-1 cursor-not-allowed border-gray-500 gap-2 text-gray-500">
+                            Unavailable
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex items-center gap-4 mt-4">
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Regular Projects Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
+              {projects.filter(p => !p.isFeatured).map(project => (
+                <div key={project.id} className="group relative h-80 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-gray-300 text-sm line-clamp-2 mb-3">{project.description}</p>
+                    <div className="flex items-center justify-between">
                       <a
                         href={project.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center hover:scale-105 gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/20 transition-colors"
+                        className="flex items-center gap-1 text-white hover:text-gray-300 transition-colors"
                       >
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                           <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
                         </svg>
-                        View Repository
+                        <span className="text-sm">View Code</span>
                       </a>
-                      <a href={project.projectLink} className="flex border-2 rounded-xl px-2 py-1 cursor-pointer hover:scale-105 border-white gap-2 text-gray-300">
-                        Link Avaliable
-                      </a>
+                      <div className="flex -space-x-2">
+                        {project.collaborators?.map((collab, i) => (
+                          <div key={i} className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center text-xs text-white">
+                            {collab}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Regular Projects Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
-            {projects.filter(p => !p.isFeatured).map(project => (
-              <div key={project.id} className="group relative h-80 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-300 text-sm line-clamp-2 mb-3">{project.description}</p>
-                  <div className="flex items-center justify-between">
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-white hover:text-gray-300 transition-colors"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-sm">View Code</span>
-                    </a>
-                    <div className="flex -space-x-2">
-                      {project.collaborators?.map((collab, i) => (
-                        <div key={i} className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center text-xs text-white">
-                          {collab}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Experience Section - Zigzag Timeline */}
-        <section id="experience" className="min-h-screen px-8 md:px-16 py-24 relative">
-          <h2 className="text-5xl font-bold mb-20 text-black dark:text-white transform rotate-1 translate-x-8">
-            Work Experience
-          </h2>
-          
-          <div className="max-w-4xl mx-auto relative">
-            {experiences.map((exp, index) => (
-              <div 
-                key={exp.id} 
-                className={`flex mb-20 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} relative`}
-              >
-                <div className="w-8 h-8 absolute left-1/2 transform -translate-x-1/2 bg-black dark:bg-white rounded-full z-10" />
-                
-                <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-right pr-4 md:pr-16' : 'text-left pl-4 md:pl-16'}`}>
-                  <h3 className="text-xl font-bold text-black dark:text-white">{exp.role}</h3>
-                  <div className="text-gray-700 dark:text-gray-300 font-medium">{exp.company}</div>
-                  <div className="text-sm italic text-gray-500 dark:text-white">{exp.period}</div>
+        <section id="experience" className="min-h-screen px-8 md:px-24 py-24 relative">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-5xl font-bold mb-20 text-black dark:text-white">
+              Experience 💼
+            </h2>
+            
+            <div className="max-w-4xl mx-auto relative">
+              {experiences.map((exp, index) => (
+                <div 
+                  key={exp.id} 
+                  className={`flex mb-20 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} relative`}
+                >
+                  <div className="w-8 h-8 absolute left-1/2 transform -translate-x-1/2 bg-black dark:bg-white rounded-full z-10" />
+                  
+                  <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-right pr-4 md:pr-16' : 'text-left pl-4 md:pl-16'}`}>
+                    <h3 className="text-xl font-bold text-black dark:text-white">{exp.role}</h3>
+                    <div className="text-gray-700 dark:text-gray-300 font-medium">{exp.company}</div>
+                    <div className="text-sm italic text-gray-500 dark:text-white">{exp.period}</div>
+                  </div>
+                  
+                  <div className="w-2/12 flex justify-center">
+                    <div className="w-1 bg-black dark:bg-white h-full rounded-full" />
+                  </div>
+                  
+                  <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-left pl-4 md:pl-16' : 'text-right pr-4 md:pr-16'}`}>
+                    <p className="text-gray-600 dark:text-white/70">
+                      {exp.description}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="w-2/12 flex justify-center">
-                  <div className="w-1 bg-black dark:bg-white h-full rounded-full" />
-                </div>
-                
-                <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-left pl-4 md:pl-16' : 'text-right pr-4 md:pr-16'}`}>
-                  <p className="text-gray-600 dark:text-white/70">
-                    {exp.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* About Section - Split Layout
-        <section id="about" className="min-h-screen relative">
-          <div className="absolute inset-0">
-            <div className="h-full w-full md:w-1/2 bg-white dark:bg-black absolute top-0 left-0" />
-            <div className="h-full w-full md:w-1/2 bg-gray-100 dark:bg-gray-900 absolute top-0 right-0" />
-          </div>
-          
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-0 min-h-screen">
-            <div className="px-8 md:px-16 py-24 flex flex-col justify-center">
-              <h2 className="text-5xl font-bold mb-12 text-black dark:text-white transform -rotate-2">
-                About Me
-              </h2>
-              
-              <div className="space-y-6 max-w-xl">
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  I'm a passionate developer with a background in [your background]. 
-                  With over [number] years of experience in the industry, I've had the 
-                  opportunity to work on a diverse range of projects from [type of projects].
-                </p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  My approach to development focuses on creating clean, efficient code 
-                  that delivers exceptional user experiences. I'm particularly interested 
-                  in [your interests/specialties].
-                </p>
-              </div>
-            </div>
-            
-            <div className="px-8 md:px-16 py-24 flex flex-col justify-center">
-              <h3 className="text-2xl font-bold mb-8 text-black dark:text-white">Skills</h3>
-              
-
-              
-              <div className="mt-12 relative">
-                <div className="rounded-xl overflow-hidden shadow-lg transform rotate-2 transition-transform duration-500 hover:rotate-0">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                    alt="About me" 
-                    className="w-full h-auto object-cover" 
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
         {/* Footer */}
-        <footer className="bg-black dark:bg-white text-white dark:text-black py-12 relative overflow-hidden">
-          <div className="container mx-auto px-6 relative z-10">
+        <footer className="bg-black dark:bg-white text-white dark:text-black py-12 px-8 md:px-24 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-start">
               <div className="mb-8 md:mb-0">
                 <h2 className="text-3xl font-bold mb-4">Bohan Wang</h2>
@@ -655,14 +622,8 @@ function App() {
 
       {/* Minimalist Project Modal */}
       {selectedProject && (
-        <div 
-          className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 transition-all duration-300 ${showDescription ? 'opacity-100' : 'opacity-0'}`}
-          onClick={closeProjectDescription}
-        >
-          <div 
-            className={`bg-white dark:bg-black max-w-5xl w-full rounded-none shadow-2xl overflow-hidden transition-all duration-500 ${showDescription ? 'translate-y-0 scale-100' : 'translate-y-10 scale-95'}`}
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 transition-all duration-300">
+          <div className="bg-white dark:bg-black max-w-5xl w-full mx-8 md:mx-auto rounded-none shadow-2xl overflow-hidden">
             <div className="relative h-80 sm:h-96 overflow-hidden">
               <img 
                 src={selectedProject.image} 
@@ -740,8 +701,8 @@ function App() {
       )}
 
       {/* Mobile Top Navigation */}
-      <div className="fixed top-0 left-0 right-0 md:hidden z-50 bg-gray-100 shadow-lg">
-        <div className="flex justify-center items-center space-x-8 px-6 py-4">
+      <div className="fixed top-0 left-0 right-0 md:hidden z-50 bg-gray-100 shadow-lg justify-between">
+        <div className="px-8 py-4 max-w-7xl justify-between flex">
           <button 
             onClick={() => scrollToSection('home')}
             className={`text-gray-700 hover:text-black dark:hover:text-gray-700/70 cursor-pointer transition-colors duration-300 ${activeSection === 'home' ? 'font-bold text-black dark:text-white' : ''}`}
