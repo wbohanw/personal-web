@@ -61,7 +61,7 @@ function App() {
       description: "An AI-powered daily agent for senior companions, improve their daily well-being",
       tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
       image: aiDarlingImage,
-      repoUrl: "https://github.com/yourusername/ai-music",
+      repoUrl: "https://github.com/wbohanw/AIDerly",
       projectLink:"https://github.com/yourusername/ai-music",
       collaborators: ["@collab1", "@collab2"],
       isFeatured: true,
@@ -73,8 +73,8 @@ function App() {
       description: "Next-gen Color inspiration for UI designers, feels like your dorm rooms",
       tags: ["React", "TypeScript"],
       image: colordormImage,
-      repoUrl: "https://github.com/yourusername/ai-music",
-      projectLink:"https://github.com/yourusername/ai-music",
+      repoUrl: "https://github.com/wbohanw/colordorm",
+      projectLink:"https://uidorm.vercel.app/",
       collaborators: ["@collab1", "@collab2"],
       isFeatured: true,
       content: [{ type: 'text', data: 'Detailed content...' }]
@@ -85,8 +85,7 @@ function App() {
       description: "Using AI to convert 2D arts to 3D AI game platform",
       tags: ["AI/ML", "OpenCV", "React", "TypeScript"],
       image: paintAIImage,
-      repoUrl: "https://github.com/yourusername/ai-music",
-      projectLink:"https://github.com/yourusername/ai-music",
+      repoUrl: "https://github.com/wbohanw/Painty-dance-ai",
       collaborators: ["@collab1", "@collab2"],
       isFeatured: true,
       content: [{ type: 'text', data: 'Detailed content...' }]
@@ -97,8 +96,8 @@ function App() {
       description: "Translation tool generates personalized restaurant menu with interactive features",
       tags: ["AI/ML", "OpenCV", "React", "TypeScript"],
       image: menulensImage,
-      repoUrl: "https://github.com/yourusername/ai-music",
-      projectLink:"https://github.com/yourusername/ai-music",
+      repoUrl: "https://github.com/wbohanw/menu-lens",
+      projectLink:"https://menu-lens.vercel.app/",
       collaborators: ["@collab1", "@collab2"],
       isFeatured: true,
       content: [{ type: 'text', data: 'Detailed content...' }]
@@ -109,8 +108,7 @@ function App() {
       description: "AI chat agent helps young teenager with well-being and mental health",
       tags: ["AI/ML", "CBT Logic", "React", "TypeScript"],
       image: miloImage,
-      repoUrl: "https://github.com/yourusername/ai-music",
-      projectLink:"https://github.com/yourusername/ai-music",
+      repoUrl: "https://github.com/Michaelyya/Teenager-wellbeing",
       collaborators: ["@collab1", "@collab2"],
       isFeatured: true,
       content: [{ type: 'text', data: 'Detailed content...' }]
@@ -133,8 +131,8 @@ function App() {
       description: "Computer Vision and ML algorithm to optimize trucking routes and reduce fuel consumption",
       tags: ["Python", "OpenCV", "ML", "React", "TypeScript"],
       image: truckingImage,
-      repoUrl: "https://github.com/yourusername/ai-music",
-      projectLink:"https://github.com/yourusername/ai-music",
+      repoUrl: "https://github.com/NameErrorException/trucking",
+      projectLink:"https://devpost.com/software/trucking",
       collaborators: ["@collab1", "@collab2"],
       isFeatured: true,
       content: [{ type: 'text', data: 'Detailed content...' }]
@@ -145,8 +143,7 @@ function App() {
       description: "Helping Blind Visual Impaired people to navigate the world with AI",
       tags: ["Python", "OpenCV", "TensorFlow", "React-Native", "TypeScript"],
       image: cybersightImage,
-      repoUrl: "https://github.com/yourusername/ai-music",
-      projectLink:"https://github.com/yourusername/ai-music",
+      repoUrl: "https://github.com/wbohanw/Cybersight",
       collaborators: ["@collab1", "@collab2"],
       isFeatured: true,
       content: [{ type: 'text', data: 'Detailed content...' }]
@@ -157,7 +154,7 @@ function App() {
       description: "Full-stack hotel management platform for asset tracking and management",
       tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
       image: assetplusImage,
-      repoUrl: "https://github.com/yourusername/ecommerce",
+      repoUrl: "https://github.com/F2023-ECSE223/ecse223-group-project-p10",
       content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
@@ -166,7 +163,7 @@ function App() {
       description: "Fire Fighter Robot using Raspberry Pi and BrickPi",
       tags: ["Raspberry Pi", "Arduino", "C++"],
       image: robohacksImage,
-      repoUrl: "https://github.com/yourusername/ecommerce",
+      repoUrl: "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
       content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
@@ -175,7 +172,7 @@ function App() {
       description: "BrickPi and Raspberry Pi based robot to load cube into the robot",
       tags: ["Raspberry Pi", "BrickPi", "Python"],
       image: robotImage,
-      repoUrl: "https://github.com/yourusername/ecommerce",
+      repoUrl: "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
       content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
@@ -184,7 +181,7 @@ function App() {
       description: "Full-stack shopping platform with real-time analytics",
       tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
       image: CPUImage,
-      repoUrl: "https://github.com/yourusername/ecommerce",
+      repoUrl: "https://github.com/404-not-found-404/16-bit-CPU",
       content: [{ type: 'text', data: 'Detailed content...' }]
     },
     {
@@ -193,7 +190,7 @@ function App() {
       description: "Full-stack shopping platform with real-time analytics",
       tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
       image: cityswImage,
-      repoUrl: "https://github.com/yourusername/ecommerce",
+      repoUrl: "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
       content: [{ type: 'text', data: 'Detailed content...' }]
     }
     // Add at least 4 more projects
