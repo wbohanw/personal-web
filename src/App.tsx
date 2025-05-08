@@ -45,7 +45,6 @@ function App() {
   )
   const [activeSection, setActiveSection] = useState('Home')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const [showDescription, setShowDescription] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioAllowed, setAudioAllowed] = useState(false)
@@ -284,12 +283,6 @@ function App() {
     }
   }, [darkMode])
 
-  // Function to close project description
-  const closeProjectDescription = () => {
-    setShowDescription(false)
-    document.body.style.overflow = ''
-    setTimeout(() => setSelectedProject(null), 300)
-  }
 
   // Section scroll handler
   const scrollToSection = (section: string) => {
