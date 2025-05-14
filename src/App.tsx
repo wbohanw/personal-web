@@ -377,7 +377,7 @@ function App() {
             </div>
           </div>
           <div className="items-center justify-center flex">
-            <div className="-ml-28 md:ml-0 w-full scale-60 sm:-ml-12 sm:scale-80 md:scale-60 md:-ml-12 lg:scale-100 lg:-ml-24">
+            <div className="md:ml-0 w-full scale-100 sm:-ml-12 sm:scale-80 md:scale-120 lg:scale-180">
               <Spline 
                 scene="https://prod.spline.design/SaiarIHVInH3Qiv3/scene.splinecode" 
                 onClick={toggleMusic}
