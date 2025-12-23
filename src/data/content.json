@@ -1,0 +1,208 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "AI Darlings",
+      "description": "An AI-powered daily agent for senior companions, improve their daily well-being",
+      "tags": ["AI/ML", "TensorFlow", "React", "TypeScript"],
+      "imageKey": "aiDarlingImage",
+      "repoUrl": "https://github.com/wbohanw/AIDerly",
+      "projectLink": "https://github.com/yourusername/ai-music",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 2,
+      "title": "ColorDorm",
+      "description": "Next-gen Color inspiration for UI designers, feels like your dorm rooms",
+      "tags": ["React", "TypeScript"],
+      "imageKey": "colordormImage",
+      "repoUrl": "https://github.com/wbohanw/colordorm",
+      "projectLink": "https://uidorm.vercel.app/",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 3,
+      "title": "PaintAI",
+      "description": "Using AI to convert 2D arts to 3D AI game platform",
+      "tags": ["AI/ML", "OpenCV", "React", "TypeScript"],
+      "imageKey": "paintAIImage",
+      "repoUrl": "https://github.com/wbohanw/Painty-dance-ai",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 4,
+      "title": "Menulens",
+      "description": "Translation tool generates personalized restaurant menu with interactive features",
+      "tags": ["AI/ML", "OpenCV", "React", "TypeScript"],
+      "imageKey": "menulensImage",
+      "repoUrl": "https://github.com/wbohanw/menu-lens",
+      "projectLink": "https://menu-lens.vercel.app/",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 5,
+      "title": "Milo AI",
+      "description": "AI chat agent helps young teenager with well-being and mental health",
+      "tags": ["AI/ML", "CBT Logic", "React", "TypeScript"],
+      "imageKey": "miloImage",
+      "repoUrl": "https://github.com/Michaelyya/Teenager-wellbeing",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 6,
+      "title": "Punch my professor",
+      "description": "Using hand-tracking and AI to convert 2D images into 3D models for humorous virtual professor-punching",
+      "tags": ["Python", "OpenCV", "Unity", "React", "C#"],
+      "imageKey": "punchImage",
+      "repoUrl": "https://github.com/wbohanw/PunchMyProf",
+      "projectLink": "https://devpost.com/software/box-my-professor",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 7,
+      "title": "Trucking AI",
+      "description": "Computer Vision and ML algorithm to optimize trucking routes and reduce fuel consumption",
+      "tags": ["Python", "OpenCV", "ML", "React", "TypeScript"],
+      "imageKey": "truckingImage",
+      "repoUrl": "https://github.com/NameErrorException/trucking",
+      "projectLink": "https://devpost.com/software/trucking",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 8,
+      "title": "Cybersight AI",
+      "description": "Helping Blind Visual Impaired people to navigate the world with AI",
+      "tags": ["Python", "OpenCV", "TensorFlow", "React-Native", "TypeScript"],
+      "imageKey": "cybersightImage",
+      "repoUrl": "https://github.com/wbohanw/Cybersight",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 9,
+      "title": "AssetPlus",
+      "description": "Full-stack hotel management platform for asset tracking and management",
+      "tags": ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      "imageKey": "assetplusImage",
+      "repoUrl": "https://github.com/F2023-ECSE223/ecse223-group-project-p10",
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 10,
+      "title": "Fire Fighter Robot",
+      "description": "Fire Fighter Robot using Raspberry Pi and BrickPi",
+      "tags": ["Raspberry Pi", "Arduino", "C++"],
+      "imageKey": "robohacksImage",
+      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 12,
+      "title": "Cube Loading Robot",
+      "description": "BrickPi and Raspberry Pi based robot to load cube into the robot",
+      "tags": ["Raspberry Pi", "BrickPi", "Python"],
+      "imageKey": "robotImage",
+      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 13,
+      "title": "16-bit CPU",
+      "description": "Full-stack shopping platform with real-time analytics",
+      "tags": ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      "imageKey": "CPUImage",
+      "repoUrl": "https://github.com/404-not-found-404/16-bit-CPU",
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 14,
+      "title": "CitySweeper",
+      "description": "Full-stack shopping platform with real-time analytics",
+      "tags": ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      "imageKey": "cityswImage",
+      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 15,
+      "title": "RabizAI",
+      "description": "Rabiz AI is an AI-Powered E-Commerce Automation platform that builds and runs an entire dropshipping or e-store operation with minimal human input.",
+      "tags": ["Python", "React", "Node.js", "Broswercash", "Stripe"],
+      "imageKey": "rabizaiImage",
+      "repoUrl": "https://github.com/wbohanw/CodeJam2025",
+      "projectLink": "https://devpost.com/software/rabiz-ai",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    },
+    {
+      "id": 16,
+      "title": "RabizAI",
+      "description": "Rabiz AI is an AI-Powered E-Commerce Automation platform that builds and runs an entire dropshipping or e-store operation with minimal human input.",
+      "tags": ["Python", "Node.js"],
+      "imageKey": "rabizaiImage",
+      "repoUrl": "https://github.com/0vp/HackRx-2025",
+      "projectLink": "https://github.com/0vp/HackRx-2025",
+      "collaborators": ["@collab1", "@collab2"],
+      "isFeatured": true,
+      "content": [{ "type": "text", "data": "Detailed content..." }]
+    }
+  ],
+  "experiences": [
+    {
+      "id": 1,
+      "company": "Botpress",
+      "role": "Software Developer - Growth",
+      "period": "Dec 2024 - Present",
+      "location": "Montreal, QC",
+      "description": "Working on growth initiatives and software development at Botpress."
+    },
+    {
+      "id": 2,
+      "company": "Shipd",
+      "role": "Software Developer",
+      "period": "Apr 2024 - Jan 2025",
+      "location": "Remote",
+      "description": "Developed software solutions for Shipd's platform."
+    },
+    {
+      "id": 3,
+      "company": "Shared Reality Lab",
+      "role": "Researcher",
+      "period": "Jan 2024 - Jan 2025",
+      "location": "Montreal, Quebec, Canada",
+      "description": "Conducted research in shared reality technologies and applications."
+    },
+    {
+      "id": 4,
+      "company": "Tianhe Technologies",
+      "role": "Software Engineer",
+      "period": "May 2023 - Sep 2023",
+      "location": "China",
+      "description": "Enhanced YOLO model performance (+2.5% accuracy, +4% precision) through optimized CNN architectures and filtering loops. Improved license plate recognition systems contributing to revenue growth using Python and OpenCV."
+    },
+    {
+      "id": 5,
+      "company": "Shanxi University",
+      "role": "Research Assistant",
+      "period": "Apr 2022 - Aug 2022",
+      "location": "Shanxi, China",
+      "description": "Boosted NLP model accuracy by 7% and processing speed by 2% through parameter optimization. Developed financial event classification systems compatible with quantitative trading algorithms using Numpy and Pandas."
+    }
+  ]
+}

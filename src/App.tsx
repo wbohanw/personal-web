@@ -20,6 +20,7 @@ import robotImage from './assets/project/regular/211Robot.png';
 import CPUImage from './assets/project/regular/16bitCPU.png';
 import cityswImage from './assets/project/regular/citysw.jpg';
 import CVpdf from './CV-2025.pdf';
+import content from './data/content.json';
 type Project = {
   id: number
   title: string
@@ -38,6 +39,31 @@ type Project = {
   isFeatured?: boolean
   projectLink?: string
 }
+type Experience = {
+  id: number
+  company: string
+  role: string
+  period: string
+  description: string
+}
+
+const imageMap = {
+  aiDarlingImage,
+  colordormImage,
+  paintAIImage,
+  menulensImage,
+  miloImage,
+  punchImage,
+  truckingImage,
+  cybersightImage,
+  assetplusImage,
+  robohacksImage,
+  robotImage,
+  CPUImage,
+  cityswImage
+} as const
+
+type ProjectWithImageKey = Omit<Project, 'image'> & { imageKey: keyof typeof imageMap }
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => 
@@ -52,171 +78,17 @@ function App() {
   const mainRef = useRef<HTMLDivElement>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
 
-  // Sample projects data - replace with your actual projects
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: "AI Darlings",
-      description: "An AI-powered daily agent for senior companions, improve their daily well-being",
-      tags: ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      image: aiDarlingImage,
-      repoUrl: "https://github.com/wbohanw/AIDerly",
-      projectLink:"https://github.com/yourusername/ai-music",
-      collaborators: ["@collab1", "@collab2"],
-      isFeatured: true,
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 2,
-      title: "ColorDorm",
-      description: "Next-gen Color inspiration for UI designers, feels like your dorm rooms",
-      tags: ["React", "TypeScript"],
-      image: colordormImage,
-      repoUrl: "https://github.com/wbohanw/colordorm",
-      projectLink:"https://uidorm.vercel.app/",
-      collaborators: ["@collab1", "@collab2"],
-      isFeatured: true,
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 3,
-      title: "PaintAI",
-      description: "Using AI to convert 2D arts to 3D AI game platform",
-      tags: ["AI/ML", "OpenCV", "React", "TypeScript"],
-      image: paintAIImage,
-      repoUrl: "https://github.com/wbohanw/Painty-dance-ai",
-      collaborators: ["@collab1", "@collab2"],
-      isFeatured: true,
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 4,
-      title: "Menulens",
-      description: "Translation tool generates personalized restaurant menu with interactive features",
-      tags: ["AI/ML", "OpenCV", "React", "TypeScript"],
-      image: menulensImage,
-      repoUrl: "https://github.com/wbohanw/menu-lens",
-      projectLink:"https://menu-lens.vercel.app/",
-      collaborators: ["@collab1", "@collab2"],
-      isFeatured: true,
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 5,
-      title: "Milo AI",
-      description: "AI chat agent helps young teenager with well-being and mental health",
-      tags: ["AI/ML", "CBT Logic", "React", "TypeScript"],
-      image: miloImage,
-      repoUrl: "https://github.com/Michaelyya/Teenager-wellbeing",
-      collaborators: ["@collab1", "@collab2"],
-      isFeatured: true,
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 6,
-      title: "Punch my professor",
-      description: "Using hand-tracking and AI to convert 2D images into 3D models for humorous virtual professor-punching",
-      tags: ["Python", "OpenCV", "Unity", "React", "C#"],
-      image: punchImage,
-      repoUrl: "https://github.com/wbohanw/PunchMyProf",
-      projectLink:"https://devpost.com/software/box-my-professor",
-      collaborators: ["@collab1", "@collab2"],
-      isFeatured: true,
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 7,
-      title: "Trucking AI",
-      description: "Computer Vision and ML algorithm to optimize trucking routes and reduce fuel consumption",
-      tags: ["Python", "OpenCV", "ML", "React", "TypeScript"],
-      image: truckingImage,
-      repoUrl: "https://github.com/NameErrorException/trucking",
-      projectLink:"https://devpost.com/software/trucking",
-      collaborators: ["@collab1", "@collab2"],
-      isFeatured: true,
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 8,
-      title: "Cybersight AI",
-      description: "Helping Blind Visual Impaired people to navigate the world with AI",
-      tags: ["Python", "OpenCV", "TensorFlow", "React-Native", "TypeScript"],
-      image: cybersightImage,
-      repoUrl: "https://github.com/wbohanw/Cybersight",
-      collaborators: ["@collab1", "@collab2"],
-      isFeatured: true,
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 9,
-      title: "AssetPlus",
-      description: "Full-stack hotel management platform for asset tracking and management",
-      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: assetplusImage,
-      repoUrl: "https://github.com/F2023-ECSE223/ecse223-group-project-p10",
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 10,
-      title: "Fire Fighter Robot",
-      description: "Fire Fighter Robot using Raspberry Pi and BrickPi",
-      tags: ["Raspberry Pi", "Arduino", "C++"],
-      image: robohacksImage,
-      repoUrl: "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 12,
-      title: "Cube Loading Robot",
-      description: "BrickPi and Raspberry Pi based robot to load cube into the robot",
-      tags: ["Raspberry Pi", "BrickPi", "Python"],
-      image: robotImage,
-      repoUrl: "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 13,
-      title: "16-bit CPU",
-      description: "Full-stack shopping platform with real-time analytics",
-      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: CPUImage,
-      repoUrl: "https://github.com/404-not-found-404/16-bit-CPU",
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    },
-    {
-      id: 14,
-      title: "CitySweeper",
-      description: "Full-stack shopping platform with real-time analytics",
-      tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: cityswImage,
-      repoUrl: "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
-      content: [{ type: 'text', data: 'Detailed content...' }]
-    }
-    // Add at least 4 more projects
-  ]
-  const experiences = [
-    {
-      id: 1,
-      company: "Data-Curve",
-      role: "Frontend Developer (Independent Contractor)",
-      period: "May 2024 – Present",
-      description: "Developed AI-resistant interactive components using React, Tailwind CSS, and TypeScript, achieving 20% expansion in front-end data collection. Delivered production-ready code to enhance AI-driven UI generation for language model companies."
-    },
-    {
-      id: 2,
-      company: "Northking Information",
-      role: "Software Development Intern (Computer Vision)",
-      period: "Apr 2023 – Aug 2023",
-      description: "Enhanced YOLO model performance (+2.5% accuracy, +4% precision) through optimized CNN architectures and filtering loops. Improved license plate recognition systems contributing to revenue growth using Python and OpenCV."
-    },
-    {
-      id: 3,
-      company: "TaiHe Technology",
-      role: "Python Machine Learning Engineer Intern",
-      period: "Apr 2022 – Aug 2022",
-      description: "Boosted NLP model accuracy by 7% and processing speed by 2% through parameter optimization. Developed financial event classification systems compatible with quantitative trading algorithms using Numpy and Pandas."
-    }
-  ];
+  const data = content as {
+    projects: ProjectWithImageKey[]
+    experiences: Experience[]
+  }
+
+  const projects: Project[] = data.projects.map(project => ({
+    ...project,
+    image: imageMap[project.imageKey] ?? project.imageKey
+  }))
+
+  const experiences = data.experiences
 
   // Auto-play music on page load
   useEffect(() => {
