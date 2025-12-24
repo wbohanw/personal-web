@@ -45,6 +45,7 @@ type Experience = {
   role: string
   period: string
   description: string
+  location?: string
 }
 
 const imageMap = {
@@ -63,7 +64,12 @@ const imageMap = {
   cityswImage
 } as const
 
-type ProjectWithImageKey = Omit<Project, 'image'> & { imageKey: keyof typeof imageMap }
+type ProjectInput = Omit<Project, 'image'> & { imageKey?: keyof typeof imageMap; imagePath?: string }
+
+const resolveImagePath = (imagePath?: string) => {
+  if (!imagePath) return ''
+  return new URL(imagePath, import.meta.url).href
+}
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => 
@@ -79,13 +85,15 @@ function App() {
   const audioRef = useRef<HTMLAudioElement>(null)
 
   const data = content as {
-    projects: ProjectWithImageKey[]
+    projects: ProjectInput[]
     experiences: Experience[]
   }
 
   const projects: Project[] = data.projects.map(project => ({
     ...project,
-    image: imageMap[project.imageKey] ?? project.imageKey
+    image: project.imagePath 
+      ? resolveImagePath(project.imagePath) 
+      : (project.imageKey ? imageMap[project.imageKey] ?? project.imageKey : '')
   }))
 
   const experiences = data.experiences
@@ -248,7 +256,7 @@ function App() {
               </a>
             </div>
           </div>
-          <div className="items-center justify-center flex">
+          <div className="items-center justify-center flex hidden md:flex">
             <div className="md:ml-0 w-full scale-100 sm:-ml-12 sm:scale-80 md:scale-120 lg:scale-180">
               <Spline 
                 scene="https://prod.spline.design/SaiarIHVInH3Qiv3/scene.splinecode" 
@@ -264,6 +272,26 @@ function App() {
             </div>
           </div>
         </section>
+
+        {/* Mobile floating Spline button */}
+        <div className="md:hidden rounded-full fixed bottom-0 right-0 z-30 w-32 h-32 flex items-center justify-center">
+          <Spline
+            scene="https://prod.spline.design/SaiarIHVInH3Qiv3/scene.splinecode"
+            onClick={toggleMusic}
+            style={{
+              cursor: 'pointer',
+              maxWidth: '320px',
+              maxHeight: '320px',
+              width: '90%',
+              height: '90%',
+              scale: '60%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '50%',
+            }}
+          />
+        </div>
 
         {/* About Section - Split Layout */}
         <section id="about" className="min-h-screen relative px-8 md:px-24 py-24">
@@ -373,7 +401,7 @@ function App() {
                         </a>
                         {project.projectLink ? (
                           <a href={project.projectLink} className="flex border-2 rounded-xl px-2 py-1 cursor-pointer hover:scale-105 border-white gap-2 text-gray-300">
-                            Link Available
+                            Demo link
                           </a>
                         ) : (
                           <span className="flex border-2 rounded-xl px-2 py-1 cursor-not-allowed border-gray-500 gap-2 text-gray-500">
