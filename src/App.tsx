@@ -64,11 +64,17 @@ const imageMap = {
   cityswImage
 } as const
 
+const imageModules = import.meta.glob('./assets/**/*.{png,jpg,jpeg,gif,webp}', { eager: true, import: 'default' }) as Record<string, string>
+
 type ProjectInput = Omit<Project, 'image'> & { imageKey?: keyof typeof imageMap; imagePath?: string }
 
 const resolveImagePath = (imagePath?: string) => {
   if (!imagePath) return ''
-  return new URL(imagePath, import.meta.url).href
+  const normalized = imagePath.startsWith('./') ? imagePath : `./${imagePath}`
+  if (imageModules[normalized]) {
+    return imageModules[normalized]
+  }
+  return normalized
 }
 
 function App() {
