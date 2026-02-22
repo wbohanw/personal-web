@@ -179,43 +179,53 @@
   "experiences": [
     {
       "id": 1,
-      "company": "Botpress",
-      "role": "Software Developer - Growth",
-      "period": "Dec 2024 - Present",
+      "company": "BotPress Inc",
+      "role": "Growth/Product Engineering Intern",
+      "stack": "AWS, BotPress ADK, TypeScript",
+      "period": "Jan 2026 – Present",
       "location": "Montreal, QC",
-      "description": "Working on growth initiatives and software development at Botpress."
+      "bullets": [
+        "Developed a WeChat integration using the Botpress SDK and WeChat API, enabling users to build AI agents with a WeChat channel.",
+        "Implemented Segment channel tracking and Mixpanel dashboards for data science analysis on the Botpress backend; designed 37+ data science models, improving model latency and overall user experience.",
+        "Developed demo agents using the Agent Development Kit (ADK), enhancing accessibility compliance and performing product engineering workflows to accelerate solution team deployments."
+      ]
     },
     {
       "id": 2,
-      "company": "Shipd",
-      "role": "Software Developer",
-      "period": "Apr 2024 - Jan 2025",
+      "company": "Shipd (Independent Contractor)",
+      "role": "Frontend Developer",
+      "stack": "React, Tailwind, JavaScript, TypeScript",
+      "period": "May 2024 – Aug 2024",
       "location": "Remote",
-      "description": "Developed software solutions for Shipd's platform."
+      "bullets": [
+        "Engineered and restored complex UI components with advanced animations using React and TypeScript, delivering pixel-perfect results where AI generation tools failed.",
+        "Ensured exceptional code quality through 1000+ code reviews and by resolving 100+ user feedback issues, culminating in a 0% client return rate across over 3000 completed tasks."
+      ]
     },
     {
       "id": 3,
       "company": "Shared Reality Lab",
-      "role": "Researcher",
-      "period": "Jan 2024 - Jan 2025",
-      "location": "Montreal, Quebec, Canada",
-      "description": "Conducted research in shared reality technologies and applications."
+      "role": "Research Developer",
+      "stack": "Unity, C#, WebXR, Three.js",
+      "period": "Jan 2024 – Jan 2025",
+      "location": "Montreal, QC",
+      "bullets": [
+        "Engineered an assistive grocery shopping app for blind and visually impaired (BVI) users, featuring real-time object detection that identifies nearby products and delivers audio feedback as users approach or grab items.",
+        "Built an end-to-end shopping pipeline — from item discovery and shelf navigation to cart management and checkout — ensuring a fully independent experience without sighted assistance.",
+        "Conducted in-person user studies with BVI participants, designing surveys and task-based evaluations to measure usability, confidence, and task completion rate; iterated on findings to drive engineering improvements across multiple research cycles."
+      ]
     },
     {
       "id": 4,
-      "company": "Tianhe Technologies",
-      "role": "Software Engineer",
-      "period": "May 2023 - Sep 2023",
-      "location": "China",
-      "description": "Enhanced YOLO model performance (+2.5% accuracy, +4% precision) through optimized CNN architectures and filtering loops. Improved license plate recognition systems contributing to revenue growth using Python and OpenCV."
-    },
-    {
-      "id": 5,
-      "company": "Shanxi University",
-      "role": "Research Assistant",
-      "period": "Apr 2022 - Aug 2022",
-      "location": "Shanxi, China",
-      "description": "Boosted NLP model accuracy by 7% and processing speed by 2% through parameter optimization. Developed financial event classification systems compatible with quantitative trading algorithms using Numpy and Pandas."
+      "company": "Northking Information",
+      "role": "Software Development Intern (CV)",
+      "stack": "Python, OpenCV, Matplotlib, YOLO",
+      "period": "Apr 2023 – Aug 2023",
+      "location": "Beijing, China",
+      "bullets": [
+        "Engineered an advanced YOLO model architecture by designing custom external layers and a novel weight parsing structure to improve model optimization and data utilization.",
+        "Optimized the computer vision pipeline through rigorous hyperparameter tuning, achieving a 4% increase in overall license plate recognition precision and a 2.5% improvement in color-differentiation accuracy."
+      ]
     }
   ]
 }

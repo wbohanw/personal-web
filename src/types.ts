@@ -21,7 +21,8 @@ export type Experience = {
   id: number
   company: string
   role: string
+  stack?: string
   period: string
-  description: string
   location?: string
+  bullets: string[]
 }
