@@ -7,6 +7,7 @@ import LandingSection from './components/LandingSection'
 import AboutSection from './components/AboutSection'
 import ProjectsSection from './components/ProjectsSection'
 import ExperienceSection from './components/ExperienceSection'
+import MilestoneGallery from './components/MilestoneGallery'
 import Footer from './components/Footer'
 import blueAudio from './assets/blue.mp3'
 import content from './data/content.json'
@@ -156,6 +157,7 @@ function App() {
           onCloseProject={closeProjectDescription}
         />
         <ExperienceSection experiences={experiences} />
+        <MilestoneGallery />
         <Footer />
       </main>
     </div>
