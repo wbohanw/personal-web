@@ -18,6 +18,7 @@ type ProjectInput = Omit<Project, 'image'> & { imageKey?: string; imagePath?: st
 
 const resolveImagePath = (imagePath?: string) => {
   if (!imagePath) return ''
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) return imagePath
   const normalized = imagePath.startsWith('./') ? imagePath : `./${imagePath}`
   return imageModules[normalized] ?? normalized
 }

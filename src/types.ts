@@ -4,6 +4,7 @@ export type Project = {
   description: string
   tags: string[]
   image: string
+  date?: string
   content: {
     type: 'text' | 'image' | 'video'
     data: string
@@ -15,6 +16,7 @@ export type Project = {
   collaborators?: string[]
   isFeatured?: boolean
   projectLink?: string
+  youtubeLink?: string
 }
 
 export type Experience = {

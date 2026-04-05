@@ -1,179 +1,407 @@
 {
   "projects": [
     {
-      "id": 1,
-      "title": "AI Darlings",
-      "description": "An AI-powered daily agent for senior companions, improve their daily well-being",
-      "tags": ["AI/ML", "TensorFlow", "React", "TypeScript"],
-      "imageKey": "aiDarlingImage",
-      "imagePath": "./assets/project/featured/AIDarling.jpg",
-      "repoUrl": "https://github.com/wbohanw/AIDerly",
-      "projectLink": "https://github.com/yourusername/ai-music",
-      "collaborators": ["@collab1", "@collab2"],
-      "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
       "id": 2,
-      "title": "ColorDorm",
-      "description": "Next-gen Color inspiration for UI designers, feels like your dorm rooms",
-      "tags": ["React", "TypeScript"],
-      "imageKey": "colordormImage",
-      "imagePath": "./assets/project/featured/Colordorm.png",
-      "repoUrl": "https://github.com/wbohanw/colordorm",
-      "projectLink": "https://uidorm.vercel.app/",
-      "collaborators": ["@collab1", "@collab2"],
+      "title": "Revly",
+      "description": "Revly is a creator-first monetization platform that turns any live stream into a native ad experience — powered by computer vision, running invisibly inside OBS.\n\n",
+      "tags": [
+        "Python",
+        "AI/ML",
+        "OpenCV"
+      ],
+      "imagePath": "",
+      "date": "2026-04-04",
+      "repoUrl": "https://github.com/wbohanw/bagelhacks2",
+      "projectLink": "https://devpost.com/software/revly?ref_content=user-portfolio&ref_feature=in_progress",
+      "youtubeLink": "https://www.youtube.com/watch?v=iFMStLxqJQI&source_ve_path=OTY3MTQ&embeds_referring_euri=https%3A%2F%2Fdevpost.com%2F",
       "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
+      "content": [
+        {
+          "type": "text",
+          "data": "Revly is a creator-first monetization platform that turns any live stream into a native ad experience — powered by computer vision, running invisibly inside OBS.\n\n"
+        }
+      ]
     },
     {
       "id": 3,
-      "title": "PaintAI",
-      "description": "Using AI to convert 2D arts to 3D AI game platform",
-      "tags": ["AI/ML", "OpenCV", "React", "TypeScript"],
-      "imageKey": "paintAIImage",
-      "imagePath": "./assets/project/featured/PaintAI.png",
-      "repoUrl": "https://github.com/wbohanw/Painty-dance-ai",
-      "collaborators": ["@collab1", "@collab2"],
+      "title": "Dreamopia",
+      "description": "Dreamopia is an AR-powered storytelling system where children use voice to generate interactive, real-time stories with AI narration and animated 3D scenes appearing around them.",
+      "tags": [
+        "TypeScript"
+      ],
+      "imagePath": "",
+      "date": "2026-03-21",
+      "repoUrl": "https://devpost.com/software/dreamopia?ref_content=user-portfolio&ref_feature=in_progress",
+      "projectLink": "https://devpost.com/software/dreamopia?ref_content=user-portfolio&ref_feature=in_progress",
+      "youtubeLink": "https://vimeo.com/1175962854?share=copy&fl=sv&fe=ci",
       "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
+      "content": [
+        {
+          "type": "text",
+          "data": "Dreamopia is an AR-powered storytelling system where children use voice to generate interactive, real-time stories with AI narration and animated 3D scenes appearing around them."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Remi",
+      "description": "AI-powered patient-doctor portal and activity monitoring to help Alzheimer patients and doctors with AI-generated insights",
+      "tags": [
+        "Python",
+        "Node.js",
+        "React",
+        "TypeScript"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/314fd66f-f9a6-4399-a921-e9d8274c1ed1/Remi.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=02d6e07386d1b1636172781cf52f96b0b616cc37a095114b39daecb0238f11fb&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2025-03-01",
+      "repoUrl": "https://github.com/0vp/HackRx-2025",
+      "projectLink": "https://www.youtube.com/watch?v=d7SWmeHx35I",
+      "youtubeLink": "https://www.youtube.com/watch?v=d7SWmeHx35I",
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "AI-powered patient-doctor portal and activity monitoring to help Alzheimer patients and doctors with AI-generated insights"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "RabizAI",
+      "description": "AI-Powered E-Commerce Automation platform that builds and runs an entire dropshipping operation with minimal human input",
+      "tags": [
+        "Python",
+        "React",
+        "Node.js",
+        "Stripe"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/ff2540b6-3b6d-4f2d-a54f-f381e9cbc01a/rabizAI.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=6ca4843eca2418fff8fbf2ec6ff5699faa7f5cac2314964d8e4d8b4166450a07&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2025-01-01",
+      "repoUrl": "https://github.com/wbohanw/CodeJam2025",
+      "projectLink": "https://youtu.be/ZWRtv431OuM?si=R9hZGBfwrI_DpPy8",
+      "youtubeLink": null,
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "AI-Powered E-Commerce Automation platform that builds and runs an entire dropshipping operation with minimal human input"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "AI Darlings",
+      "description": "An AI-powered daily agent for senior companions, improve their daily well-being",
+      "tags": [
+        "AI/ML",
+        "TensorFlow",
+        "React",
+        "TypeScript"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/d97fb6d4-caae-4934-9d52-bbda737e22da/AIDarling.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=f83e9f3c755dcc875ffaeaa88bcaa49caa1cf0d86309b6a4558f8b34827f5bf3&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-11-01",
+      "repoUrl": "https://github.com/wbohanw/AIDerly",
+      "projectLink": "https://youtu.be/q_z4xOVVx70?si=iNp-czAhnb6qO5Vg",
+      "youtubeLink": null,
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "An AI-powered daily agent for senior companions, improve their daily well-being"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Milo AI",
+      "description": "AI chat agent helps young teenager with well-being and mental health",
+      "tags": [
+        "AI/ML",
+        "CBT Logic",
+        "React",
+        "TypeScript"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/ef152626-bf4b-48ca-86e8-a79959a2406a/milo.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=a50119dc0b1594684a300140b0f8416bfc22add0586b2e91d3899a7fa9ebb96c&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-10-01",
+      "repoUrl": "https://github.com/Michaelyya/Teenager-wellbeing",
+      "projectLink": null,
+      "youtubeLink": null,
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "AI chat agent helps young teenager with well-being and mental health"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Punch my professor",
+      "description": "Using hand-tracking and AI to convert 2D images into 3D models for humorous virtual professor-punching",
+      "tags": [
+        "Python",
+        "OpenCV",
+        "Unity",
+        "React",
+        "C#"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/52a2726a-21ac-470e-a5d9-6f6fd4ae7c54/punch.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=639a58a01a5a31237405efc5e84543e6c74b079c15bae526b909f510a6cb3153&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-09-01",
+      "repoUrl": "https://github.com/wbohanw/PunchMyProf",
+      "projectLink": "https://www.youtube.com/watch?v=pnxXGGBSUc0",
+      "youtubeLink": null,
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "Using hand-tracking and AI to convert 2D images into 3D models for humorous virtual professor-punching"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Trucking AI",
+      "description": "Computer Vision and ML algorithm to optimize trucking routes and reduce fuel consumption",
+      "tags": [
+        "Python",
+        "OpenCV",
+        "ML",
+        "React",
+        "TypeScript"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/e4dd9ed1-b2a1-4342-9729-5dec1a88a0eb/trucking.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=ee84fc7c5bca18992b9e890a871d1aa7489e138e699d6eed669b5a7a7546f102&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-09-01",
+      "repoUrl": "https://github.com/NameErrorException/trucking",
+      "projectLink": "https://www.youtube.com/watch?v=EVDzemLPOzw",
+      "youtubeLink": null,
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "Computer Vision and ML algorithm to optimize trucking routes and reduce fuel consumption"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "ColorDorm",
+      "description": "Next-gen Color inspiration for UI designers, feels like your dorm rooms",
+      "tags": [
+        "React",
+        "TypeScript"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/cea256e4-7368-4278-bb38-1949a0af5ae7/Colordorm.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=e99bc23fd8fa159832ecb722a8b1312b634f3349b4cb7307c4fe9478c2076f72&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-08-01",
+      "repoUrl": "https://github.com/wbohanw/colordorm",
+      "projectLink": "https://uidorm.vercel.app/",
+      "youtubeLink": null,
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "Next-gen Color inspiration for UI designers, feels like your dorm rooms"
+        }
+      ]
     },
     {
       "id": 4,
       "title": "Menulens",
       "description": "Translation tool generates personalized restaurant menu with interactive features",
-      "tags": ["AI/ML", "OpenCV", "React", "TypeScript"],
-      "imageKey": "menulensImage",
-      "imagePath": "./assets/project/featured/Menulens.jpg",
+      "tags": [
+        "AI/ML",
+        "OpenCV",
+        "React",
+        "TypeScript"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/d34cfe4b-b663-4be4-bb21-8b7dee406b01/Menulens.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=d4fcb39e8fb4fa806ee0afa2886d3c5819cafbee0cfa540ac869e06eb1698579&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-07-01",
       "repoUrl": "https://github.com/wbohanw/menu-lens",
-      "projectLink": "https://menu-lens.vercel.app/",
-      "collaborators": ["@collab1", "@collab2"],
+      "projectLink": "https://youtu.be/nstu9m7HFnQ?si=98W0FHDOwGL3P6kY",
+      "youtubeLink": null,
       "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 5,
-      "title": "Milo AI",
-      "description": "AI chat agent helps young teenager with well-being and mental health",
-      "tags": ["AI/ML", "CBT Logic", "React", "TypeScript"],
-      "imageKey": "miloImage",
-      "imagePath": "./assets/project/featured/milo.jpg",
-      "repoUrl": "https://github.com/Michaelyya/Teenager-wellbeing",
-      "collaborators": ["@collab1", "@collab2"],
-      "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 6,
-      "title": "Punch my professor",
-      "description": "Using hand-tracking and AI to convert 2D images into 3D models for humorous virtual professor-punching",
-      "tags": ["Python", "OpenCV", "Unity", "React", "C#"],
-      "imageKey": "punchImage",
-      "imagePath": "./assets/project/featured/punch.png",
-      "repoUrl": "https://github.com/wbohanw/PunchMyProf",
-      "projectLink": "https://devpost.com/software/box-my-professor",
-      "collaborators": ["@collab1", "@collab2"],
-      "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 7,
-      "title": "Trucking AI",
-      "description": "Computer Vision and ML algorithm to optimize trucking routes and reduce fuel consumption",
-      "tags": ["Python", "OpenCV", "ML", "React", "TypeScript"],
-      "imageKey": "truckingImage",
-      "imagePath": "./assets/project/featured/trucking.png",
-      "repoUrl": "https://github.com/NameErrorException/trucking",
-      "projectLink": "https://devpost.com/software/trucking",
-      "collaborators": ["@collab1", "@collab2"],
-      "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 8,
-      "title": "Cybersight AI",
-      "description": "Helping Blind Visual Impaired people to navigate the world with AI",
-      "tags": ["Python", "OpenCV", "TensorFlow", "React-Native", "TypeScript"],
-      "imageKey": "cybersightImage",
-      "imagePath": "./assets/project/featured/cybersight.png",
-      "repoUrl": "https://github.com/wbohanw/Cybersight",
-      "collaborators": ["@collab1", "@collab2"],
-      "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 9,
-      "title": "AssetPlus",
-      "description": "Full-stack hotel management platform for asset tracking and management",
-      "tags": ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      "imageKey": "assetplusImage",
-      "imagePath": "./assets/project/regular/assetplus.png",
-      "repoUrl": "https://github.com/F2023-ECSE223/ecse223-group-project-p10",
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 10,
-      "title": "Fire Fighter Robot",
-      "description": "Fire Fighter Robot using Raspberry Pi and BrickPi",
-      "tags": ["Raspberry Pi", "Arduino", "C++"],
-      "imageKey": "robohacksImage",
-      "imagePath": "./assets/project/regular/robohack.jpg",
-      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
-      "content": [{ "type": "text", "data": "Detailed content..." }]
+      "content": [
+        {
+          "type": "text",
+          "data": "Translation tool generates personalized restaurant menu with interactive features"
+        }
+      ]
     },
     {
       "id": 12,
-      "title": "Cube Loading Robot",
-      "description": "BrickPi and Raspberry Pi based robot to load cube into the robot",
-      "tags": ["Raspberry Pi", "BrickPi", "Python"],
-      "imageKey": "robotImage",
-      "imagePath": "./assets/project/regular/211Robot.png",
-      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 13,
-      "title": "16-bit CPU",
-      "description": "Full-stack shopping platform with real-time analytics",
-      "tags": ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      "imageKey": "CPUImage",
-      "imagePath": "./assets/project/regular/16bitCPU.png",
-      "repoUrl": "https://github.com/404-not-found-404/16-bit-CPU",
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 14,
-      "title": "CitySweeper",
-      "description": "Full-stack shopping platform with real-time analytics",
-      "tags": ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      "imageKey": "cityswImage",
-      "imagePath": "./assets/project/regular/citysw.jpg",
-      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
-      "content": [{ "type": "text", "data": "Detailed content..." }]
-    },
-    {
-      "id": 15,
-      "title": "RabizAI",
-      "description": "Rabiz AI is an AI-Powered E-Commerce Automation platform that builds and runs an entire dropshipping or e-store operation with minimal human input.",
-      "tags": ["Python", "React", "Node.js", "Broswercash", "Stripe"],
-      "imagePath": "./assets/project/featured/rabizAI.png",
-      "repoUrl": "https://github.com/wbohanw/CodeJam2025",
-      "projectLink": "https://devpost.com/software/rabiz-ai",
-      "collaborators": ["@collab1", "@collab2"],
+      "title": "Cybersight AI",
+      "description": "Helping Blind Visual Impaired people to navigate the world with AI",
+      "tags": [
+        "Python",
+        "OpenCV",
+        "TensorFlow",
+        "React-Native",
+        "TypeScript"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/1313a416-9599-46df-b86a-f90f1f0a86ac/cybersight.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=479fa0d401fd16fa8517ebfc75a55d2074a45e15a5fecb742f2b45c80e1f45d0&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-03-01",
+      "repoUrl": "https://github.com/wbohanw/Cybersight",
+      "projectLink": null,
+      "youtubeLink": null,
       "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
+      "content": [
+        {
+          "type": "text",
+          "data": "Helping Blind Visual Impaired people to navigate the world with AI"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Fire Fighter Robot",
+      "description": "Fire Fighter Robot using Raspberry Pi and BrickPi",
+      "tags": [
+        "Raspberry Pi",
+        "Arduino",
+        "C++"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/5aad5167-8cab-475d-b95b-ef11efe03f23/robohack.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=15db1b29644ff5c8a8a762c5eb866321094f106ed0d016924e87b484476dc8aa&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-02-01",
+      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
+      "projectLink": null,
+      "youtubeLink": null,
+      "isFeatured": false,
+      "content": [
+        {
+          "type": "text",
+          "data": "Fire Fighter Robot using Raspberry Pi and BrickPi"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "PaintAI",
+      "description": "Using AI to convert 2D arts to 3D AI game platform",
+      "tags": [
+        "AI/ML",
+        "OpenCV",
+        "React",
+        "TypeScript"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/1c0c6c0b-548a-4185-baf4-c2b0c72fb6c9/PaintAI.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=49d3602f744bb6cd3800e48ad87c4d855daec7a640084786b5a43d4174e26edc&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2024-01-01",
+      "repoUrl": "https://github.com/wbohanw/Painty-dance-ai",
+      "projectLink": "https://youtu.be/dVhpT-ZqagE",
+      "youtubeLink": null,
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "Using AI to convert 2D arts to 3D AI game platform"
+        }
+      ]
     },
     {
       "id": 16,
-      "title": "Remi",
-      "description": "Remi is an AI-powered platform providing a patient–doctor portal and first-person activity monitoring to securely track daily behaviors, help Alzheimer’s patients recall forgotten tasks, and provide doctors with clear activity logs and AI-generated insights for more accurate diagnosis and care.",
-      "tags": ["Python", "Node.js", "React", "TypeScript"],
-      "imagePath": "./assets/project/featured/Remi.png",
-      "repoUrl": "https://github.com/0vp/HackRx-2025",
-      "projectLink": "https://www.youtube.com/watch?v=d7SWmeHx35I",
-      "collaborators": ["@collab1", "@collab2"],
-      "isFeatured": true,
-      "content": [{ "type": "text", "data": "Detailed content..." }]
+      "title": "AssetPlus",
+      "description": "Full-stack hotel management platform for asset tracking and management",
+      "tags": [
+        "Next.js",
+        "Node.js",
+        "MongoDB",
+        "Stripe"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/5e9492da-5246-4ca9-a82c-2b663018dd9d/assetplus.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=ccbb01cb1e750adf8392507dd03d0622fb85dc941a51700efa9b3d520627a636&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2023-12-01",
+      "repoUrl": "https://github.com/F2023-ECSE223/ecse223-group-project-p10",
+      "projectLink": null,
+      "youtubeLink": null,
+      "isFeatured": false,
+      "content": [
+        {
+          "type": "text",
+          "data": "Full-stack hotel management platform for asset tracking and management"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "CitySweeper",
+      "description": "City management and sweeping simulation platform",
+      "tags": [
+        "Next.js",
+        "Node.js",
+        "MongoDB",
+        "Stripe"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/48cae44c-f291-40f9-a2af-77a7f2cfdf81/citysw.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=c0f0a92c3b93b86a6683f1b42a9dd9bcf801435dce45f9cc953030b461d7c190&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2023-11-01",
+      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
+      "projectLink": null,
+      "youtubeLink": null,
+      "isFeatured": false,
+      "content": [
+        {
+          "type": "text",
+          "data": "City management and sweeping simulation platform"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "16-bit CPU",
+      "description": "Full 16-bit CPU implementation in hardware description language",
+      "tags": [
+        "VHDL",
+        "Digital Logic",
+        "Computer Architecture"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/40aa1667-3962-4aa2-80e5-e504f354369d/16bitCPU.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=ce0b3488c6122a34bf7670b4fe698f115854b0988192d5b9d26f98ad368ec226&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2023-10-01",
+      "repoUrl": "https://github.com/404-not-found-404/16-bit-CPU",
+      "projectLink": null,
+      "youtubeLink": null,
+      "isFeatured": false,
+      "content": [
+        {
+          "type": "text",
+          "data": "Full 16-bit CPU implementation in hardware description language"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Cube Loading Robot",
+      "description": "BrickPi and Raspberry Pi based robot to load cube into the robot",
+      "tags": [
+        "Raspberry Pi",
+        "BrickPi",
+        "Python"
+      ],
+      "imagePath": "https://prod-files-secure.s3.us-west-2.amazonaws.com/158ae245-2309-81f0-9676-000367fd4fd6/452c4c0b-bd7c-40b3-891b-09fa81ade21c/211Robot.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4662U6JJ6FE%2F20260405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260405T221737Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDegDGKkyZXPz884gqRM44Tz0dKgKfGdUHVxWAD08kLcAiBoP9Z265Dx%2FJIOvtzBEyKBAojPOQLDDwAsw3KX0s1tTSqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMx9aZsU54SlZfi1cQKtwDI0pZRQwZMOnvMJJakKZ5XCN1HURcP3hmZck5wfIhvjJhwISj7Wb2RxrAMm0EF%2Fj5IEgWB3yLZY3HHpFQeOtoXAOvxTJEE2iRiubkbrZkDdJ5fSusAorqUQRa2DbYM6kR40rdOuTMpmnv8Frks%2FaMN%2Bkh94DsdNtGdcaQdKZP9IcpOqDRVM6JB9m6lGHM%2Bla7EAC75iwysIeagErjsAcRAmwi7mxGeQV6M1%2BXf3ONLaojvdExbF9aYqfXxD83dgpNlEcj%2F6rakaHQmcsp9BQMC1ZIoXpPiQRM8qB%2BqpzOB8qDsYLzaYgowDIepB40g7s%2FhjI7WJbCMGa51qtLVRg0eEg1p1oMCvF1FPR4YiYgBt%2FTDU%2FrTptZVpPpj7y2h208xZMC3UqWN1buW58xwZ0%2BfZzk3M9QZrXf6tjmESRu8GvF3qTyGg7tbhy6rbkFfdMNKR4Zn9MFCJ2qeSctgPqBwrWuld7lm1oaJ%2F8z0iB%2Fg7%2BsgNISc5p9UPpuAbYsniCg3kEnvMr5C3l09fspSRulNWif1sGcliJO75QkmcMyHVkM99XUETFyzfvpdSkIgQQry69p7jRv8MIJ%2B15T7Ab3C%2Fx4984dtdJRzDwqPba%2F9zas%2BuPWU5arPkcHB%2BQwsp7LzgY6pgGfX%2FTIRrr%2BrImMpCmP9xMAmYTFeTWUjtnduy8DT%2Fa%2BQklUWu70ZynYpw171reBv%2BwnlAVjYa33Sn0Hf7dXgI0AvHQ3BQ35zEdntUBiPpoUFXHOFUJjCjLQHjXxnrV5EW94tO72V6VXKZ%2BrEvQmj2vRZCWkdNmZF0oHVBCQOTwy36diPgdzi70JjBgWAKNV1x16b7N9or%2FZqamY29Wu7oJzST3TWRGD&X-Amz-Signature=356339dc9da50a03921fd610c292fd36829880c564a0711db88aa18bf978f0af&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "date": "2023-09-01",
+      "repoUrl": "https://github.com/wbohanw/Robohacks_2024_McGill_Robotics",
+      "projectLink": null,
+      "youtubeLink": null,
+      "isFeatured": false,
+      "content": [
+        {
+          "type": "text",
+          "data": "BrickPi and Raspberry Pi based robot to load cube into the robot"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "",
+      "description": "",
+      "tags": [],
+      "imagePath": "",
+      "date": null,
+      "repoUrl": "",
+      "projectLink": null,
+      "youtubeLink": null,
+      "isFeatured": false,
+      "content": [
+        {
+          "type": "text",
+          "data": ""
+        }
+      ]
     }
   ],
   "experiences": [
