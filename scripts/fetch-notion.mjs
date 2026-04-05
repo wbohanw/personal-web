@@ -1,7 +1,7 @@
 /**
  * fetch-notion.mjs
- * Pulls all projects from the Notion "Personal-Project" database
- * and writes them into src/data/content.json (preserving experiences).
+ * Pulls all projects from the Notion "Personal-Project" database,
+ * downloads cover images locally, and writes to src/data/content.json.
  *
  * Run: node scripts/fetch-notion.mjs
  */
@@ -10,6 +10,8 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import fetch from 'node-fetch'
+import { createWriteStream } from 'fs'
+import { pipeline } from 'stream/promises'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -89,6 +91,39 @@ async function queryAllPages() {
   return pages
 }
 
+// ── Image downloader ──────────────────────────────────────────────────────────
+
+const IMAGES_DIR = path.join(ROOT, 'src/assets/projects')
+
+function slugify(title) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+}
+
+async function downloadImage(url, title) {
+  if (!url) return null
+  fs.mkdirSync(IMAGES_DIR, { recursive: true })
+
+  // Determine extension from URL
+  const urlPath = new URL(url).pathname
+  const ext = path.extname(urlPath).split('?')[0] || '.jpg'
+  const filename = `${slugify(title)}${ext}`
+  const dest = path.join(IMAGES_DIR, filename)
+
+  try {
+    const res = await fetch(url)
+    if (!res.ok) {
+      console.warn(`  ⚠ Could not download image for "${title}": HTTP ${res.status}`)
+      return null
+    }
+    await pipeline(res.body, createWriteStream(dest))
+    console.log(`  ↓ Downloaded image for "${title}" → ${filename}`)
+    return `./assets/projects/${filename}`
+  } catch (err) {
+    console.warn(`  ⚠ Failed to download image for "${title}":`, err.message)
+    return null
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -107,15 +142,22 @@ async function main() {
     }
   }
 
-  const projects = pages.map((page, i) => {
+  const projects = []
+  for (let i = 0; i < pages.length; i++) {
+    const page = pages[i]
     const p = page.properties
     const coverUrl = getCoverUrl(page)
     const title = getTitle(p.Name)
 
-    // Prefer the Notion cover URL (live image); fall back to local path if available
-    const imagePath = coverUrl ?? existingByTitle[title] ?? ''
+    let imagePath = existingByTitle[title] ?? ''
 
-    return {
+    // If Notion has a cover image, download it locally
+    if (coverUrl) {
+      const localPath = await downloadImage(coverUrl, title)
+      if (localPath) imagePath = localPath
+    }
+
+    projects.push({
       id: i + 1,
       title,
       description: getText(p.Description),
@@ -127,8 +169,8 @@ async function main() {
       youtubeLink: getUrl(p.YoutubeLink),
       isFeatured: getCheckbox(p.IsFeatured),
       content: [{ type: 'text', data: getText(p.Description) }],
-    }
-  })
+    })
+  }
 
   // Sort: newest first, undated fall to the bottom
   projects.sort((a, b) => {
@@ -140,13 +182,13 @@ async function main() {
 
   const updated = {
     projects,
-    experiences: existing.experiences, // preserve experiences untouched
+    experiences: existing.experiences,
   }
 
   fs.writeFileSync(contentPath, JSON.stringify(updated, null, 2))
   console.log(`\n✓ Written ${projects.length} projects to src/data/content.json`)
   console.log('\nProjects:')
-  projects.forEach(p => console.log(`  ${p.isFeatured ? '★' : '·'} ${p.title}`))
+  projects.forEach(p => console.log(`  ${p.isFeatured ? '★' : '·'} ${p.title} (${p.imagePath || 'no image'})`))
 }
 
 main().catch(err => { console.error(err); process.exit(1) })
