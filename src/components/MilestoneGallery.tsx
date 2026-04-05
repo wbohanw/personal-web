@@ -1,12 +1,4 @@
 import { useState } from 'react'
-
-export type Milestone = {
-  src: string
-  caption?: string
-  year?: string
-  wide?: boolean  // hint: force full-width row
-}
-
 import bagelhack1 from '../assets/milestones/bagelhack-1.png'
 import bagelhack2 from '../assets/milestones/bagelhack-2.png'
 import databricks1 from '../assets/milestones/databricks-1.png'
@@ -16,6 +8,13 @@ import databricks4 from '../assets/milestones/databricks-4.png'
 import qec1 from '../assets/milestones/qec-1.png'
 import qec2 from '../assets/milestones/qec-2.png'
 import qec3 from '../assets/milestones/qec-3.png'
+
+export type Milestone = {
+  src: string
+  caption?: string
+  year?: string
+  wide?: boolean
+}
 
 const ITEMS: Milestone[] = [
   { src: databricks4, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025', wide: true  },
@@ -133,13 +132,6 @@ export default function MilestoneGallery() {
         ))}
       </div>
 
-      {importedMilestones.length === 0 && (
-        <p className="text-center text-xs text-gray-300 dark:text-zinc-600 mt-12">
-          Add photos to{' '}
-          <code className="bg-black/5 dark:bg-white/5 px-1 py-0.5 rounded">src/assets/milestones/</code>
-          {' '}— mark <code className="bg-black/5 dark:bg-white/5 px-1 py-0.5 rounded">wide: true</code> in the data for a full-width row
-        </p>
-      )}
     </section>
   )
 }
