@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import bagelhack1 from '../assets/milestones/bagelhack-1.png'
 import bagelhack2 from '../assets/milestones/bagelhack-2.png'
 import databricks1 from '../assets/milestones/databricks-1.png'
@@ -14,85 +14,64 @@ export type Milestone = {
   src: string
   caption?: string
   year?: string
-  wide?: boolean
 }
 
 const ITEMS: Milestone[] = [
-  { src: databricks4, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025', wide: true  },
-  { src: databricks1, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025', wide: false },
-  { src: databricks2, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025', wide: false },
-  { src: databricks3, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025', wide: true  },
-  { src: qec3,        caption: '1st Place — Quebec Engineering Competition (QEC)',    year: '2025', wide: true  },
-  { src: qec1,        caption: '1st Place — Quebec Engineering Competition (QEC)',    year: '2025', wide: false },
-  { src: qec2,        caption: '1st Place — Quebec Engineering Competition (QEC)',    year: '2025', wide: false },
-  { src: '',          caption: '3rd Place — Shanxi AI Challenge Cup',                year: '2025', wide: false },
-  { src: '',          caption: '1st Place — McGill Engineering Competition (MEC)',   year: '2024', wide: false },
-  { src: '',          caption: 'Best Game Development — McHacks 2024',              year: '2024', wide: false },
-  { src: bagelhack1,  caption: '2nd Place — Bagel Hack II @ Montreal',              year: '2024', wide: false },
-  { src: bagelhack2,  caption: '2nd Place — Bagel Hack II @ Montreal',              year: '2024', wide: false },
-  { src: '',          caption: 'Honorable Award — CareXR Hackathon',                year: '2024', wide: false },
-  { src: '',          caption: '1st Place — RoboHack McGill',                       year: '2023', wide: false },
-  { src: '',          caption: '2nd Place — 123LoadBoard Coding Challenge',          year: '2023', wide: false },
-  { src: handan1,     caption: '3rd Place — 15th Handan Youth Innovation & Entrepreneurship Competition', year: '2025', wide: true },
+  { src: databricks4, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025' },
+  { src: databricks1, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025' },
+  { src: databricks2, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025' },
+  { src: databricks3, caption: '1st Place — Databricks Montreal AI Agent Hackathon', year: '2025' },
+  { src: qec3,        caption: '1st Place — Quebec Engineering Competition (QEC)',    year: '2025' },
+  { src: qec1,        caption: '1st Place — Quebec Engineering Competition (QEC)',    year: '2025' },
+  { src: qec2,        caption: '1st Place — Quebec Engineering Competition (QEC)',    year: '2025' },
+  { src: handan1,     caption: '3rd Place — 15th Handan Youth Innovation & Entrepreneurship Competition', year: '2025' },
+  { src: '',          caption: '3rd Place — Shanxi AI Challenge Cup',                year: '2025' },
+  { src: '',          caption: '1st Place — McGill Engineering Competition (MEC)',   year: '2024' },
+  { src: '',          caption: 'Best Game Development — McHacks 2024',              year: '2024' },
+  { src: bagelhack1,  caption: '2nd Place — Bagel Hack II @ Montreal',              year: '2024' },
+  { src: bagelhack2,  caption: '2nd Place — Bagel Hack II @ Montreal',              year: '2024' },
+  { src: '',          caption: 'Honorable Award — CareXR Hackathon',                year: '2024' },
+  { src: '',          caption: '1st Place — RoboHack McGill',                       year: '2023' },
+  { src: '',          caption: '2nd Place — 123LoadBoard Coding Challenge',          year: '2023' },
 ]
 
-// ─── Group items into rows of 1 or 2 ─────────────────────────────────────────
-// Rule: if item is wide OR the next item is missing → solo row; otherwise pair up
-function buildRows(items: Milestone[]): Milestone[][] {
-  const rows: Milestone[][] = []
-  let i = 0
-  while (i < items.length) {
-    const cur = items[i]
-    const next = items[i + 1]
-    if (cur.wide || !next) {
-      rows.push([cur])
-      i++
-    } else {
-      rows.push([cur, next])
-      i += 2
-    }
-  }
-  return rows
-}
 
 // ─── Single photo cell ────────────────────────────────────────────────────────
 function PhotoCell({ item }: { item: Milestone }) {
   const [hovered, setHovered] = useState(false)
 
-  // No photo: render a clean text award card
   if (!item.src) {
     return (
-      <div className="flex-1 flex items-center justify-center px-8 py-10 border border-black/8 dark:border-white/8 rounded-sm min-h-40">
-        <div className="text-center">
-          {item.year && (
-            <p className="text-[11px] tracking-widest uppercase text-gray-400 dark:text-gray-500 mb-2">{item.year}</p>
-          )}
-          <p className="text-sm font-medium text-black dark:text-white leading-snug">{item.caption}</p>
-        </div>
+      <div className="break-inside-avoid mb-3 flex flex-col items-center justify-center gap-2 px-6 py-10 bg-white dark:bg-zinc-900 border border-black/8 dark:border-white/8 rounded-sm min-h-36">
+        <span className="text-2xl">😢</span>
+        <p className="text-[11px] text-gray-400 dark:text-gray-500 italic">can't find the photo...</p>
+        {item.year && (
+          <p className="text-[11px] tracking-widest uppercase text-gray-300 dark:text-gray-600 mt-1">{item.year}</p>
+        )}
+        <p className="text-xs font-medium text-black dark:text-white leading-snug text-center mt-0.5">{item.caption}</p>
       </div>
     )
   }
 
   return (
     <div
-      className="relative overflow-hidden flex-1"
+      className="break-inside-avoid mb-3 relative overflow-hidden rounded-sm"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <img
         src={item.src}
         alt={item.caption ?? ''}
-        className="w-full h-full object-cover block transition-transform duration-700"
+        className="w-full h-auto block transition-transform duration-700"
         style={{ transform: hovered ? 'scale(1.03)' : 'scale(1)' }}
         loading="lazy"
       />
 
-      {/* Subtle caption on hover */}
       {(item.caption || item.year) && (
         <div
           className="absolute bottom-0 left-0 right-0 px-4 py-3 flex items-end gap-3 pointer-events-none"
           style={{
-            background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%)',
             opacity: hovered ? 1 : 0,
             transition: 'opacity 0.3s ease',
           }}
@@ -111,7 +90,17 @@ function PhotoCell({ item }: { item: Milestone }) {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function MilestoneGallery() {
-  const rows = buildRows(ITEMS)
+  const [cols, setCols] = useState(3)
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 640) setCols(1)
+      else if (window.innerWidth < 1024) setCols(2)
+      else setCols(3)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
 
   return (
     <section id="milestones" className="py-24">
@@ -122,17 +111,20 @@ export default function MilestoneGallery() {
         </p>
       </div>
 
-      {/* Photo rows */}
-      <div className="flex flex-col gap-3 px-8 md:px-24">
-        {rows.map((row, ri) => (
-          <div key={ri} className="flex gap-3" style={{ minHeight: row.length === 1 ? '420px' : '320px' }}>
-            {row.map((item, ci) => (
-              <PhotoCell key={ci} item={item} />
-            ))}
-          </div>
-        ))}
+      <div className="px-8 md:px-24">
+        <div
+          className="mx-auto"
+          style={{
+            maxWidth: '960px',
+            columnCount: cols,
+            columnGap: '12px',
+          }}
+        >
+          {ITEMS.map((item, i) => (
+            <PhotoCell key={i} item={item} />
+          ))}
+        </div>
       </div>
-
     </section>
   )
 }
