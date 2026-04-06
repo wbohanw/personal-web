@@ -8,6 +8,7 @@ import databricks4 from '../assets/milestones/databricks-4.png'
 import qec1 from '../assets/milestones/qec-1.png'
 import qec2 from '../assets/milestones/qec-2.png'
 import qec3 from '../assets/milestones/qec-3.png'
+import handan1 from '../assets/milestones/handan-1.png'
 
 export type Milestone = {
   src: string
@@ -32,7 +33,7 @@ const ITEMS: Milestone[] = [
   { src: '',          caption: 'Honorable Award — CareXR Hackathon',                year: '2024', wide: false },
   { src: '',          caption: '1st Place — RoboHack McGill',                       year: '2023', wide: false },
   { src: '',          caption: '2nd Place — 123LoadBoard Coding Challenge',          year: '2023', wide: false },
-  { src: '',          caption: '3rd Place — 15th Handan Youth Innovation & Entrepreneurship Competition', year: '2023', wide: true },
+  { src: handan1,     caption: '3rd Place — 15th Handan Youth Innovation & Entrepreneurship Competition', year: '2025', wide: true },
 ]
 
 // ─── Group items into rows of 1 or 2 ─────────────────────────────────────────
