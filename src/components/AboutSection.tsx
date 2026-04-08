@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { SiJavascript, SiTypescript, SiNextdotjs, SiNodedotjs, SiSass, SiTailwindcss, SiMysql, SiAmazon } from 'react-icons/si'
 import { FaReact, FaPython, FaGitAlt, FaDocker } from 'react-icons/fa'
 import bohanImage from '../assets/Bohan.jpg'
-import TetrisPuzzle from './TetrisPuzzle'
+import TetrisPuzzle, { TetrisPuzzleHandle } from './TetrisPuzzle'
 
 // Tetris colour groups
 // orange: JavaScript, SQL, Python, Node.js
@@ -25,6 +25,14 @@ const skills = [
 
 export default function AboutSection() {
   const [flipped, setFlipped] = useState(false)
+  const puzzleRef = useRef<TetrisPuzzleHandle>(null)
+
+  const handleHiddenDrag = (pieceId: string) => (e: React.MouseEvent | React.TouchEvent) => {
+    if (!flipped) return
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
+    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
+    puzzleRef.current?.startHiddenPieceDrag(clientX, clientY, pieceId)
+  }
 
   return (
     <section id="about" className="min-h-screen relative px-8 md:px-24 py-24">
@@ -69,7 +77,7 @@ export default function AboutSection() {
                     transform: 'rotateY(180deg)',
                   }}
                 >
-                  <TetrisPuzzle />
+                  <TetrisPuzzle ref={puzzleRef} />
                 </div>
               </div>
             </div>
@@ -78,31 +86,37 @@ export default function AboutSection() {
           {/* ── Skills + bio ── */}
           <div className="flex flex-col justify-center items-center">
             <div className="grid grid-cols-4 gap-2 p-10">
-              {skills.map(({ name, Icon, color }, i) => (
-                <div
-                  key={i}
-                  className={`aspect-square flex flex-col items-center justify-center p-4 shadow-md hover:scale-110 space-y-2 ${
-                    flipped ? '' : 'bg-white dark:bg-black'
-                  }`}
-                  style={{
-                    ...(flipped ? { backgroundColor: color } : {}),
-                    transform: `rotate(${(i % 4) * 3 - 4}deg)`,
-                    borderRadius: '18% 22% 20% 16%',
-                    transition: 'background-color 0.6s ease, transform 0.3s ease',
-                  }}
-                >
-                  <Icon
-                    className={`w-8 h-8 transition-colors duration-500 ${flipped ? '' : 'text-gray-800 dark:text-gray-200'}`}
-                    style={flipped ? { color: 'white' } : {}}
-                  />
-                  <span
-                    className={`text-xs font-medium text-center transition-colors duration-500 ${flipped ? '' : 'text-black dark:text-white'}`}
-                    style={flipped ? { color: 'white' } : {}}
+              {skills.map(({ name, Icon, color }, i) => {
+                const isJTile = name === 'Next.js'
+                const isLTile = name === 'Node.js'
+                return (
+                  <div
+                    key={i}
+                    onMouseDown={isJTile ? handleHiddenDrag('J2') : isLTile ? handleHiddenDrag('L2') : undefined}
+                    onTouchStart={isJTile ? handleHiddenDrag('J2') : isLTile ? handleHiddenDrag('L2') : undefined}
+                    className={`aspect-square flex flex-col items-center justify-center p-4 shadow-md space-y-2 hover:scale-110 ${
+                      flipped ? '' : 'bg-white dark:bg-black'
+                    }`}
+                    style={{
+                      ...(flipped ? { backgroundColor: color } : {}),
+                      transform: `rotate(${(i % 4) * 3 - 4}deg)`,
+                      borderRadius: '18% 22% 20% 16%',
+                      transition: 'background-color 0.6s ease, transform 0.3s ease',
+                    }}
                   >
-                    {name}
-                  </span>
-                </div>
-              ))}
+                    <Icon
+                      className={`w-8 h-8 transition-colors duration-500 ${flipped ? '' : 'text-gray-800 dark:text-gray-200'}`}
+                      style={flipped ? { color: 'white' } : {}}
+                    />
+                    <span
+                      className={`text-xs font-medium text-center transition-colors duration-500 ${flipped ? '' : 'text-black dark:text-white'}`}
+                      style={flipped ? { color: 'white' } : {}}
+                    >
+                      {name}
+                    </span>
+                  </div>
+                )
+              })}
             </div>
 
             <div className="text-center lg:text-left space-y-4">

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, forwardRef, useImperativeHandle } from 'react'
 import { createPortal } from 'react-dom'
 import { RefreshCw, Trophy } from 'lucide-react'
 
@@ -7,30 +7,37 @@ const BOARD_HEIGHT = 7
 const CELL_SIZE = 60
 
 const SHAPES = {
-  I: { id: 'I', color: 'from-cyan-400 to-cyan-600',     cells: [[1, 1, 1, 1]] },
-  O: { id: 'O', color: 'from-yellow-300 to-yellow-500', cells: [[1, 1], [1, 1]] },
-  L: { id: 'L', color: 'from-orange-400 to-orange-600', cells: [[1, 0], [1, 0], [1, 1]] },
-  T: { id: 'T', color: 'from-purple-400 to-purple-600', cells: [[1, 1, 1], [0, 1, 0]] },
-  J: { id: 'J', color: 'from-blue-500 to-blue-700',     cells: [[0, 1], [0, 1], [1, 1]] },
-  S: { id: 'S', color: 'from-green-400 to-green-600',   cells: [[0, 1, 1], [1, 1, 0]] },
-  Z: { id: 'Z', color: 'from-red-400 to-red-600',       cells: [[1, 1, 0], [0, 1, 1]] },
+  I: { id: 'I', color: 'from-cyan-400 to-cyan-600',     cells: [[1, 1, 1, 1]], hidden: false, noRotate: false },
+  O: { id: 'O', color: 'from-yellow-300 to-yellow-500', cells: [[1, 1], [1, 1]],             hidden: false, noRotate: false },
+  L: { id: 'L', color: 'from-orange-400 to-orange-600', cells: [[1, 0], [1, 0], [1, 1]],     hidden: false, noRotate: false },
+  T: { id: 'T', color: 'from-purple-400 to-purple-600', cells: [[1, 1, 1], [0, 1, 0]],       hidden: false, noRotate: false },
+  J: { id: 'J', color: 'from-blue-500 to-blue-700',     cells: [[0, 1], [0, 1], [1, 1]],     hidden: false, noRotate: false },
+  J2: { id: 'J2', color: 'from-blue-500 to-blue-700',  cells: [[0, 1], [0, 1], [1, 1]],     hidden: true,  noRotate: true  },
+  L2: { id: 'L2', color: 'from-orange-400 to-orange-600', cells: [[1, 0], [1, 0], [1, 1]], hidden: true,  noRotate: true  },
+  S: { id: 'S', color: 'from-green-400 to-green-600',   cells: [[0, 1, 1], [1, 1, 0]],       hidden: false, noRotate: false },
+  Z: { id: 'Z', color: 'from-red-400 to-red-600',       cells: [[1, 1, 0], [0, 1, 1]],       hidden: false, noRotate: false },
 }
 
 type Piece = {
   id: string; color: string; cells: number[][]
   currentCells: number[][]; isPlaced: boolean; x: number | null; y: number | null
+  hidden: boolean; noRotate: boolean
 }
 
-const rotateMatrix = (matrix: number[][]): number[][] => {
-  const rows = matrix.length, cols = matrix[0].length
+const rotateMatrix = (m: number[][]): number[][] => {
+  const rows = m.length, cols = m[0].length
   const out = Array.from({ length: cols }, () => Array(rows).fill(0))
   for (let r = 0; r < rows; r++)
     for (let c = 0; c < cols; c++)
-      out[c][rows - 1 - r] = matrix[r][c]
+      out[c][rows - 1 - r] = m[r][c]
   return out
 }
 
-export default function TetrisPuzzle() {
+export type TetrisPuzzleHandle = {
+  startHiddenPieceDrag: (clientX: number, clientY: number, pieceId?: string) => void
+}
+
+const TetrisPuzzle = forwardRef<TetrisPuzzleHandle>((_, ref) => {
   const [pieces, setPieces] = useState<Piece[]>(
     Object.values(SHAPES).map(s => ({ ...s, currentCells: s.cells, isPlaced: false, x: null, y: null }))
   )
@@ -39,24 +46,19 @@ export default function TetrisPuzzle() {
   const lastTapRef = useRef(0)
   const boardRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    setGameWon(pieces.every(p => p.isPlaced))
-  }, [pieces])
+  useEffect(() => { setGameWon(pieces.every(p => p.isPlaced)) }, [pieces])
 
-  const isValidMove = useCallback((cells: number[][], x: number, y: number, pieceIndex: number, currentPieces: Piece[]) => {
+  const isValidMove = useCallback((cells: number[][], x: number, y: number, pieceIndex: number, cur: Piece[]) => {
     const rows = cells.length, cols = cells[0].length
     if (x < 0 || y < 0 || x + cols > BOARD_WIDTH || y + rows > BOARD_HEIGHT) return false
     for (let r = 0; r < rows; r++)
       for (let c = 0; c < cols; c++)
         if (cells[r][c] === 1) {
           const bX = x + c, bY = y + r
-          for (let i = 0; i < currentPieces.length; i++) {
-            if (i === pieceIndex || !currentPieces[i].isPlaced) continue
-            const other = currentPieces[i]
-            const oX = bX - other.x!, oY = bY - other.y!
-            if (oY >= 0 && oY < other.currentCells.length &&
-                oX >= 0 && oX < other.currentCells[0].length &&
-                other.currentCells[oY][oX] === 1) return false
+          for (let i = 0; i < cur.length; i++) {
+            if (i === pieceIndex || !cur[i].isPlaced) continue
+            const o = cur[i], oX = bX - o.x!, oY = bY - o.y!
+            if (oY >= 0 && oY < o.currentCells.length && oX >= 0 && oX < o.currentCells[0].length && o.currentCells[oY][oX] === 1) return false
           }
         }
     return true
@@ -66,6 +68,7 @@ export default function TetrisPuzzle() {
     setPieces(prev => {
       const next = [...prev]
       const piece = next[index]
+      if (piece.noRotate) return next
       const rotated = rotateMatrix(piece.currentCells)
       if (piece.isPlaced) {
         if (isValidMove(rotated, piece.x!, piece.y!, index, next))
@@ -76,6 +79,40 @@ export default function TetrisPuzzle() {
       return next
     })
   }, [isValidMove])
+
+  const startDrag = (index: number, clientX: number, clientY: number, isFromBoard = false, overrideOffset?: { x: number, y: number }) => {
+    let offsetX: number, offsetY: number
+    if (overrideOffset) {
+      offsetX = overrideOffset.x
+      offsetY = overrideOffset.y
+    } else if (isFromBoard) {
+      offsetX = 0; offsetY = 0 // will be set by caller via getBoundingClientRect
+    } else {
+      const piece = pieces[index]
+      const cols = piece.currentCells[0].length
+      const rows = piece.currentCells.length
+      offsetX = (cols * (CELL_SIZE + 4) - 4) / 2
+      offsetY = (rows * (CELL_SIZE + 4) - 4) / 2
+    }
+    setDragState({ index, isFromBoard, startX: clientX, startY: clientY, currentX: clientX, currentY: clientY, offsetX, offsetY })
+    if (isFromBoard)
+      setPieces(prev => { const n = [...prev]; n[index] = { ...n[index], isPlaced: false }; return n })
+  }
+
+  // Expose startHiddenPieceDrag so AboutSection can initiate drag of the J piece
+  useImperativeHandle(ref, () => ({
+    startHiddenPieceDrag(clientX: number, clientY: number, pieceId = 'J2') {
+      const idx = pieces.findIndex(p => p.id === pieceId)
+      if (idx === -1 || pieces[idx].isPlaced) return
+      const piece = pieces[idx]
+      const cols = piece.currentCells[0].length
+      const rows = piece.currentCells.length
+      startDrag(idx, clientX, clientY, false, {
+        x: (cols * (CELL_SIZE + 4) - 4) / 2,
+        y: (rows * (CELL_SIZE + 4) - 4) / 2,
+      })
+    }
+  }))
 
   const handleStartInteraction = (e: any, index: number, isFromBoard = false) => {
     if (gameWon) return
@@ -88,15 +125,11 @@ export default function TetrisPuzzle() {
     lastTapRef.current = now
 
     let offsetX: number, offsetY: number
-
     if (isFromBoard) {
-      // Dragging from board: the piece <div> is positioned at the cell origin,
-      // so offset = cursor position within that element (already full-size)
       const rect = e.currentTarget.getBoundingClientRect()
       offsetX = clientX - rect.left
       offsetY = clientY - rect.top
     } else {
-      // Dragging from tray: center the piece under the cursor
       const piece = pieces[index]
       const cols = piece.currentCells[0].length
       const rows = piece.currentCells.length
@@ -104,12 +137,7 @@ export default function TetrisPuzzle() {
       offsetY = (rows * (CELL_SIZE + 4) - 4) / 2
     }
 
-    setDragState({
-      index, isFromBoard,
-      startX: clientX, startY: clientY,
-      currentX: clientX, currentY: clientY,
-      offsetX, offsetY,
-    })
+    setDragState({ index, isFromBoard, startX: clientX, startY: clientY, currentX: clientX, currentY: clientY, offsetX, offsetY })
     if (isFromBoard)
       setPieces(prev => { const n = [...prev]; n[index] = { ...n[index], isPlaced: false }; return n })
   }
@@ -167,6 +195,9 @@ export default function TetrisPuzzle() {
 
   const reset = () => setPieces(prev => prev.map(p => ({ ...p, isPlaced: false, x: null, y: null })))
 
+  const draggingPiece = dragState ? pieces[dragState.index] : null
+  const isHiddenDrag = draggingPiece?.hidden ?? false
+
   return (
     <div className="w-full h-full bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-4 font-sans select-none overflow-hidden touch-none rounded-3xl">
       <div className="w-full max-w-sm flex justify-end items-center mb-4 px-2">
@@ -176,10 +207,8 @@ export default function TetrisPuzzle() {
       </div>
 
       <div className="flex flex-row gap-6 items-center justify-center w-full max-w-2xl px-2">
-
         {/* Board */}
         <div className="relative p-1.5 bg-slate-900 rounded-xl shadow-2xl border-2 border-slate-800 flex-shrink-0">
-          {/* boardRef points to the inner grid — no padding offset to worry about */}
           <div
             ref={boardRef}
             className="relative grid gap-1"
@@ -231,16 +260,16 @@ export default function TetrisPuzzle() {
                   gap: '4px',
                 }}
               >
-              {p.currentCells.map((row, ry) =>
-                row.map((cell, cx) =>
-                  cell ? (
-                    <div key={`${ry}-${cx}`} className={`w-[60px] h-[60px] rounded-md bg-gradient-to-br ${p.color} border border-white/20 shadow-inner flex items-center justify-center`}>
-                      <div className="w-10 h-10 rounded border-t border-white/30 border-l border-white/20 bg-black/5" />
-                    </div>
-                  ) : <div key={`${ry}-${cx}`} />
-                )
-              )}
-            </div>
+                {p.currentCells.map((row, ry) =>
+                  row.map((cell, cx) =>
+                    cell ? (
+                      <div key={`${ry}-${cx}`} className={`w-[60px] h-[60px] rounded-md bg-gradient-to-br ${p.color} border border-white/20 shadow-inner flex items-center justify-center`}>
+                        <div className="w-10 h-10 rounded border-t border-white/30 border-l border-white/20 bg-black/5" />
+                      </div>
+                    ) : <div key={`${ry}-${cx}`} />
+                  )
+                )}
+              </div>
             ))}
 
             {/* Win overlay */}
@@ -256,10 +285,10 @@ export default function TetrisPuzzle() {
           </div>
         </div>
 
-        {/* Vertical tray */}
+        {/* Vertical tray — hidden pieces are excluded */}
         <div className="w-20 bg-slate-900/40 rounded-2xl border border-slate-800/60 p-2 self-stretch flex flex-col items-center justify-center">
           <div className="flex flex-col items-center gap-8 py-2 w-full">
-            {pieces.map((p, i) => !p.isPlaced && (
+            {pieces.map((p, i) => !p.isPlaced && !p.hidden && (
               <div
                 key={p.id}
                 onMouseDown={e => handleStartInteraction(e, i)}
@@ -280,11 +309,10 @@ export default function TetrisPuzzle() {
             )}
           </div>
         </div>
-
       </div>
 
-      {/* Drag overlay — portaled to body to escape CSS transform stacking context */}
-      {dragState && createPortal(
+      {/* Drag overlay — hidden piece: no overlay, only ghost. Normal pieces: show overlay */}
+      {dragState && !isHiddenDrag && createPortal(
         <div
           className="pointer-events-none opacity-80 drop-shadow-2xl"
           style={{
@@ -308,7 +336,9 @@ export default function TetrisPuzzle() {
         </div>,
         document.body
       )}
-
     </div>
   )
-}
+})
+
+TetrisPuzzle.displayName = 'TetrisPuzzle'
+export default TetrisPuzzle
