@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import bagelhack1 from '../assets/milestones/bagelhack-1.png'
 import bagelhack2 from '../assets/milestones/bagelhack-2.png'
+import carexr1 from '../assets/milestones/carexr-1.jpg'
+import carexr2 from '../assets/milestones/carexr-2.jpg'
 import databricks1 from '../assets/milestones/databricks-1.png'
 import databricks2 from '../assets/milestones/databricks-2.png'
 import databricks3 from '../assets/milestones/databricks-3.png'
@@ -67,7 +69,7 @@ const AWARDS: Award[] = [
     id: 'carexr',
     title: 'Honorable Award — CareXR Hackathon',
     year: '2026',
-    images: [],
+    images: [carexr1, carexr2],
   },
   {
     id: 'robohack',
