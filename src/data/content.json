@@ -1,6 +1,29 @@
 {
   "projects": [
     {
+      "id": 21,
+      "title": "Alex Bot",
+      "description": "A GitHub-native autonomous coding agent that turns issue mentions into reviewed pull requests through a plan, approval, and build workflow.",
+      "tags": [
+        "TypeScript",
+        "GitHub Apps",
+        "OpenCode",
+        "Vite"
+      ],
+      "imagePath": "./assets/projects/alex-bot.png",
+      "date": "2026-09-08",
+      "repoUrl": "https://github.com/wbohanw/Alex",
+      "projectLink": "https://alex.bo-han.wang",
+      "youtubeLink": null,
+      "isFeatured": true,
+      "content": [
+        {
+          "type": "text",
+          "data": "Alex Bot runs as a GitHub App with its own identity. Mention it on an issue to receive an implementation plan, approve the plan from GitHub or the dashboard, and let the agent build the change and open a pull request. It also reviews pull requests on demand through a remote OpenCode server."
+        }
+      ]
+    },
+    {
       "id": 2,
       "title": "Revly",
       "description": "Revly is a creator-first monetization platform that turns any live stream into a native ad experience — powered by computer vision, running invisibly inside OBS.\n\n",
