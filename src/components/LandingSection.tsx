@@ -41,10 +41,10 @@ export default function HeroSection({ onToggleMusic }: HeroSectionProps) {
           </div>
           <div className="flex flex-wrap mt-4 gap-6 justify-center md:justify-start text-center">
             <a
-              href="https://github.com/wbohanw"
+              href="/portfolio"
               className="w-48 px-8 py-3 border-2 border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black font-medium transition-all duration-300 transform hover:-translate-y-1"
             >
-              GitHub Repo
+              View Portfolio
             </a>
             <a
               href="https://www.linkedin.com/in/bohan-wang-1a71b024a/"
