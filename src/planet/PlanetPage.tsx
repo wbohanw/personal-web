@@ -44,6 +44,7 @@ export default function PlanetPage() {
   const walkInput = useRef<WalkInput>({ keys: new Set(), pulse: new Map() })
   const stage = useRef<HTMLElement>(null)
   const worldEntry = useRef<HTMLButtonElement>(null)
+  const mobileWorldEntry = useRef<HTMLButtonElement>(null)
   const previousWorldMode = useRef<WorldMode>('overview')
   const roaming = worldMode !== 'overview'
   const nearbyPlace = places.find(place => place.id === nearby)
@@ -56,7 +57,10 @@ export default function PlanetPage() {
     if (mode === 'overview') { setNearby(null) }
   }, [])
   useEffect(() => {
-    if (worldMode === 'overview' && previousWorldMode.current !== 'overview') worldEntry.current?.focus()
+    if (worldMode === 'overview' && previousWorldMode.current !== 'overview') {
+      const entryButton = mobileWorldEntry.current?.offsetParent ? mobileWorldEntry.current : worldEntry.current
+      entryButton?.focus()
+    }
     previousWorldMode.current = worldMode
   }, [worldMode])
   const visit = useCallback((id: PanelId | null) => {
@@ -123,11 +127,12 @@ export default function PlanetPage() {
     else audio.current?.pause()
     setHasEntered(true)
   }
+  const enterWorld = () => { setPreview(null); setWorldMode('loading') }
   return <main className={`planet-page${night ? ' is-night' : ''}${roaming ? ' is-roaming' : ''}`} data-world-mode={worldMode}>
     <audio ref={audio} src={blueAudio} loop preload="none" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => { setPlaying(false); setAudioMessage('Music is unavailable right now.') }} />
     <div className="sky-grain" aria-hidden="true" />
     <button ref={worldEntry} className="world-entry-button" disabled={!ready || failed} onClick={() => {
-      if (worldMode === 'overview') { setPreview(null); setWorldMode('loading') }
+      if (worldMode === 'overview') enterWorld()
       else { changeWorldMode('overview') }
     }}>{worldMode === 'overview' ? 'Enter the World' : 'Exit'}{!roaming && <ArrowUpRight size={15} aria-hidden="true" />}</button>
     <section className="developer-intro" aria-labelledby="developer-title">
@@ -140,7 +145,10 @@ export default function PlanetPage() {
         <a className="developer-action" href="https://github.com/wbohanw" target="_blank" rel="noreferrer">GitHub Repo</a>
         <a className="developer-action is-primary" href="https://www.linkedin.com/in/bohan-wang-1a71b024a/" target="_blank" rel="noreferrer">Let’s Connect</a>
       </div>
-      <p className="developer-quote">Only <span>10</span> types of people<br />{' '}in this world.</p>
+      <div className="intro-footer">
+        <p className="developer-quote">Only <span>10</span> types of people<br />{' '}in this world.</p>
+        <button ref={mobileWorldEntry} className="world-entry-button mobile-world-entry" disabled={!ready || failed} onClick={enterWorld}>Enter the World<ArrowUpRight size={15} aria-hidden="true" /></button>
+      </div>
     </section>
     <section ref={stage} aria-busy={worldMode === 'loading'} className={`planet-stage${ready ? ' is-ready' : ''}${failed ? ' has-failed' : ''}`} aria-label={roaming ? 'First-person planet walk' : 'Interactive blue planet. Drag to rotate, or choose a destination using the map or navigation below.'}>
       <div className="planet-halo" aria-hidden="true" />
