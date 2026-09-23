@@ -10,6 +10,7 @@ import BottomBar from './BottomBar'
 import cvPdf from '../bohancv.pdf'
 import './planet.css'
 import './content.css'
+import './mobile.css'
 
 const PlanetScene = lazy(() => import('./PlanetScene'))
 const icons = { projects: Wrench, experience: Compass, awards: Tent, books: BookOpen, life: Coffee, research: Microscope }
@@ -130,8 +131,8 @@ export default function PlanetPage() {
       else { changeWorldMode('overview') }
     }}>{worldMode === 'overview' ? 'Enter the World' : 'Exit'}{!roaming && <ArrowUpRight size={15} aria-hidden="true" />}</button>
     <section className="developer-intro" aria-labelledby="developer-title">
-      <h1 id="developer-title"><button onClick={() => openPanel('about')}>Bohan<br /><em>Wang</em></button></h1>
-      <p className="developer-role">Full Stack<br />AI Product Engineer</p>
+      <h1 id="developer-title"><button aria-label="Bohan Wang" onClick={() => openPanel('about')}>Bohan<br /><em>Wang</em></button></h1>
+      <p className="developer-role"><span>Full Stack</span><br /><span>AI Product Engineer</span></p>
       <p className="developer-description">Building innovative web applications and exploring new AI technologies.</p>
       <div className="developer-actions">
         <a className="developer-action is-primary" href={cvPdf} download="Bohan-Wang-CV.pdf">Download CV</a>
@@ -139,7 +140,7 @@ export default function PlanetPage() {
         <a className="developer-action" href="https://github.com/wbohanw" target="_blank" rel="noreferrer">GitHub Repo</a>
         <a className="developer-action is-primary" href="https://www.linkedin.com/in/bohan-wang-1a71b024a/" target="_blank" rel="noreferrer">Let’s Connect</a>
       </div>
-      <p className="developer-quote">Only <span>10</span> types of people<br />in this world.</p>
+      <p className="developer-quote">Only <span>10</span> types of people<br />{' '}in this world.</p>
     </section>
     <section ref={stage} aria-busy={worldMode === 'loading'} className={`planet-stage${ready ? ' is-ready' : ''}${failed ? ' has-failed' : ''}`} aria-label={roaming ? 'First-person planet walk' : 'Interactive blue planet. Drag to rotate, or choose a destination using the map or navigation below.'}>
       <div className="planet-halo" aria-hidden="true" />
