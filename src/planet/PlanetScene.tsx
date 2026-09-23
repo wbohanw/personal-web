@@ -1,8 +1,9 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useMemo, useRef, type MutableRefObject, type RefObject } from 'react'
 import * as THREE from 'three'
-import { makeCloud, makeWorld, point } from './world'
+import { makeCloud, makeWorld, point, RADIUS } from './world'
 import { places, type PlaceId } from './data'
+import { makePhotoBoards } from './photoBoards'
 import WorldWalk, { type WalkInput, type WorldMode } from './WorldWalk'
 
 export type ViewCommand = { place: PlaceId | null; serial: number }
@@ -23,6 +24,12 @@ type Props = {
 function World({ labels, command, night, reducedMotion, paused, mode, walkInput, onModeChange, onNearby, onReady, onError, onSelect }: Props) {
   const { camera, gl, size, invalidate } = useThree()
   const world = useMemo(() => makeWorld(), [])
+  useEffect(() => {
+    const boards = makePhotoBoards(world, RADIUS, invalidate)
+    world.add(boards.group)
+    invalidate()
+    return () => { world.remove(boards.group); boards.dispose() }
+  }, [world, invalidate])
   const root = useRef<THREE.Group>(null)
   const clouds = useMemo(() => [makeCloud(), makeCloud(), makeCloud(), makeCloud()], [])
   const target = useRef(new THREE.Quaternion().setFromEuler(new THREE.Euler(.08, -.08, -.10)))

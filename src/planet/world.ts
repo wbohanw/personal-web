@@ -1,6 +1,7 @@
 import * as T from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 import { places } from './data'
+import { photoStops, photoStopPosition } from './photoBoards'
 
 export const RADIUS = 2.5
 const UP = new T.Vector3(0, 1, 0)
@@ -98,6 +99,7 @@ export function makeWorld() {
   const paths = [[46, -40, 57, 42], [46, -40, 9, -22], [9, -22, 8, -70], [12, 49, 57, 42], [9, -22, -27, -1], [28, 0, 46, -40], [28, 0, 9, -22]]
   const pathClearings = paths.flatMap(([a, b, c, d]) => Array.from({ length: 28 }, (_, index) => point(a, b, 1).lerp(point(c, d, 1), index / 27).normalize().multiplyScalar(RADIUS + .06)))
   const arrival = point(28, 0)
+  const photoClearings = photoStops.map(stop => photoStopPosition(stop.lat, stop.lon, RADIUS + .06))
   const landDefinitions = [
     { lat: 35, lon: -27, rx: 1.01, ry: .76, seed: 1 },
     { lat: 14, lon: 49, rx: .40, ry: .64, seed: 4 },
@@ -130,7 +132,7 @@ export function makeWorld() {
     for (let i = 0; i < 52; i++) {
       const a = rand() * Math.PI * 2, f = Math.sqrt(rand()) * .95
       const p = local(a, f, .06), latitude = Math.asin(p.y / p.length()) * 180 / Math.PI, longitude = Math.atan2(p.x, p.z) * 180 / Math.PI
-      if (places.some(place => p.distanceTo(point(place.lat, place.lon)) < .66) || p.distanceTo(arrival) < .7 || pathClearings.some(center => p.distanceTo(center) < .19)) continue
+      if (photoClearings.some(center => p.distanceTo(center) < .27) || places.some(place => p.distanceTo(point(place.lat, place.lon)) < .66) || p.distanceTo(arrival) < .7 || pathClearings.some(center => p.distanceTo(center) < .19)) continue
       const grove = surface(latitude, longitude, rand() * 6)
       const s = .47 + rand() * .67
       if (i % 7 === 0) { const rock = ball(grove, .11 * s, [0, .05, 0], '#a2b5af'); rock.scale.set(1, .7, 1.3) }

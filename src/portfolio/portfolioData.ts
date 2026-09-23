@@ -1,5 +1,4 @@
 import alexDashboardCover from '../assets/portfolio/alex-dashboard.png'
-import helioCover from '../assets/portfolio/helio-monitor.png'
 import jokuCover from '../assets/portfolio/joku-review.png'
 import revlyCover from '../assets/portfolio/revly-demo.jpg'
 import dreamopiaCover from '../assets/milestones/carexr-1.jpg'
@@ -38,7 +37,7 @@ export type CaseStudy = {
   result: string
   metrics: { value: string; label: string }[]
   stack: string[]
-  visual: 'helio' | 'codezero' | 'joku'
+  visual: 'codezero' | 'joku'
   coverImage: string
   video?: PortfolioVideo
   repoUrl?: string
@@ -62,30 +61,8 @@ export type VideoProject = {
 // YouTube/Vimeo only need the video ID; self-hosted demos use provider: 'file'.
 export const caseStudies: CaseStudy[] = [
   {
-    slug: 'helio',
-    number: '01',
-    title: 'Helio AI Glasses',
-    label: 'EDGE AI · ANDROID · PRODUCT',
-    oneLiner: 'Turning constrained smart-glasses hardware into practical, hands-free product interactions.',
-    problem: 'The glasses depended on a separate trackpad, while an early hand-tracking prototype took roughly three seconds per detection—too slow for a real interaction.',
-    approach: [
-      'Built the Android and on-device AI feature layer on top of the INMO SDK using Kotlin APIs and WebSocket data paths.',
-      'Quantized the MediaPipe/TFLite model to INT8, enabled the GPU delegate, and reworked the camera-frame processing pipeline.',
-      'Created on-device timing benchmarks and iterated against customer demo feedback instead of optimizing in isolation.',
-    ],
-    result: 'Delivered responsive gesture control for customer demos and trained a compact seven-segment recognition model that outperformed deployable baselines on the target device.',
-    metrics: [
-      { value: '90 ms', label: 'average detection latency' },
-      { value: '90.4%', label: 'exact-match accuracy' },
-      { value: '1.67 MB', label: 'TFLite model size' },
-    ],
-    stack: ['Kotlin', 'Android', 'TFLite', 'MediaPipe', 'OpenCV'],
-    visual: 'helio',
-    coverImage: helioCover,
-  },
-  {
     slug: 'alex',
-    number: '02',
+    number: '01',
     title: 'Alex',
     label: 'CODING AGENT · ORCHESTRATION',
     oneLiner: 'A coding agent built around the way I actually plan, parallelize, review, and recover development work.',
@@ -107,7 +84,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'joku',
-    number: '03',
+    number: '02',
     title: 'Joku',
     label: 'AGENTIC AUTOMATION · BROWSER',
     oneLiner: 'A daily job-search agent that turns a personal profile into a human-reviewed application queue.',

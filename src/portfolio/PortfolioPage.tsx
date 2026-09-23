@@ -116,7 +116,7 @@ export default function PortfolioPage() {
       id: project.slug,
       number: project.number,
       title: project.title,
-      year: project.slug === 'helio' ? '2026—NOW' : project.slug === 'alex' ? '2025—26' : '2025—26',
+      year: '2025—26',
       category: project.label.split(' · ').join(' / '),
       description: project.oneLiner,
       problem: project.problem,
@@ -157,7 +157,6 @@ export default function PortfolioPage() {
       'market signal lab',
       'agent cost router',
       'ai skills library',
-      'helio',
     ]
     const rank = new Map(featuredOrder.map((id, index) => [id, index]))
 
