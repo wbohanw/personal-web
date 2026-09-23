@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="48 0 1024 1024" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Bohan — bold B, little cat and sparkles</title>
+  <defs>
+    <linearGradient id="ink" x1="244" y1="740" x2="887" y2="431" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D99D8B"/>
+      <stop offset=".43" stop-color="#BD9CA4"/>
+      <stop offset="1" stop-color="#72B6CF"/>
+    </linearGradient>
+    <linearGradient id="sparkle" x1="414" y1="124" x2="512" y2="316" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8A6A0"/>
+      <stop offset="1" stop-color="#BE959B"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#ink)" stroke-width="112" stroke-linecap="round" stroke-linejoin="round">
+    <!-- The hand-drawn B silhouette, with its two small pointed corners. -->
+    <path d="M422 278 271 297Q253 298 266 314L300 354Q315 368 313 391L311 572"/>
+    <path d="M545 266Q590 264 613 245L647 222 649 264C746 266 819 345 823 424 828 485 803 530 760 567C844 586 901 647 904 723 910 813 846 873 782 890"/>
+    <path d="M738 901Q652 913 523 910L527 935Q530 957 499 944L429 910"/>
+    <!-- Two quiet interior strokes from the reference. -->
+    <path d="M582 420Q588 450 585 477" stroke-width="76"/>
+    <path d="M587 693 586 773Q587 813 558 797" stroke-width="76"/>
+  </g>
+  <g stroke="url(#sparkle)" stroke-width="76" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M487 130 464 190 429 197 458 216 482 303 494 248"/>
+    <path d="M487 130 498 184 527 195 512 211"/>
+    <path d="M376 131 370 127M414 94 411 88" stroke-width="50"/>
+  </g>
+  <g stroke="url(#ink)" stroke-width="72" stroke-linecap="round" stroke-linejoin="round">
+    <!-- A second sparkle, and the tiny cat tucked into the lower-left edge. -->
+    <path d="M228 448 208 524 183 534 207 549 224 632 241 587"/>
+    <path d="M228 448 240 526 266 534 258 544"/>
+    <path d="M157 419 165 435M129 463 142 466" stroke-width="52"/>
+    <path d="M305 673 307 630Q306 610 322 624L344 645"/>
+    <path d="M422 644 451 625Q461 619 467 638L475 663"/>
+    <path d="M380 658 381 662M392 721 408 722" stroke-width="58"/>
+    <path d="M286 714 284 713M266 744 246 754Q232 760 249 765L265 768M279 815 277 815" stroke-width="58"/>
+    <path d="M280 850 263 877Q253 893 273 894L293 893M336 892 336 893M370 893 394 893" stroke-width="64"/>
+    <path d="M386 820 397 806 409 828" stroke-width="58"/>
+    <circle cx="917" cy="479" r="15" stroke-width="44"/>
+  </g>
+</svg>
